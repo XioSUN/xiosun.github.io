@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="base,vim," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="vim笔记（2）参考vi&#x2F;vim按键说明 Part 1：一般模式下的光标移动、复制粘贴、替换搜索 光标移动  1234567891011121314151617181920h   &#x2F;&#x2F; 参考note-on-vim-1，下同。 j k l CTRL+f  &#x2F;&#x2F; 下翻一页（常用） CTRL+b  &#x2F;&#x2F; 上翻一页（常用） CTRL+d  &#x2F;&#x2F; 下翻半页 CTRL+u  &#x2F;&#x2F; 上翻半页 +   &#x2F;&#x2F; 光标">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim-note-2">
+<meta property="og:url" content="http://example.com/2021/11/01/vim-note-2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="vim笔记（2）参考vi&#x2F;vim按键说明 Part 1：一般模式下的光标移动、复制粘贴、替换搜索 光标移动  1234567891011121314151617181920h   &#x2F;&#x2F; 参考note-on-vim-1，下同。 j k l CTRL+f  &#x2F;&#x2F; 下翻一页（常用） CTRL+b  &#x2F;&#x2F; 上翻一页（常用） CTRL+d  &#x2F;&#x2F; 下翻半页 CTRL+u  &#x2F;&#x2F; 上翻半页 +   &#x2F;&#x2F; 光标">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-31T16:00:51.000Z">
+<meta property="article:modified_time" content="2021-10-31T16:16:18.554Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="base">
+<meta property="article:tag" content="vim">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2021/11/01/vim-note-2/"/>
+
+
+
+
+
+  <title>vim-note-2 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/01/vim-note-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vim-note-2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-11-01T00:00:51+08:00">
+                2021-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="vim笔记（2）"><a href="#vim笔记（2）" class="headerlink" title="vim笔记（2）"></a>vim笔记（2）</h1><p>参考<a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-vim.html">vi/vim按键说明</a></p>
+<h2 id="Part-1：一般模式下的光标移动、复制粘贴、替换搜索"><a href="#Part-1：一般模式下的光标移动、复制粘贴、替换搜索" class="headerlink" title="Part 1：一般模式下的光标移动、复制粘贴、替换搜索"></a>Part 1：一般模式下的光标移动、复制粘贴、替换搜索</h2><ol>
+<li>光标移动</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">h   // 参考note-on-vim-1，下同。 </span><br><span class="line">j </span><br><span class="line">k </span><br><span class="line">l </span><br><span class="line">CTRL+f  // 下翻一页（常用） </span><br><span class="line">CTRL+b  // 上翻一页（常用） </span><br><span class="line">CTRL+d  // 下翻半页 </span><br><span class="line">CTRL+u  // 上翻半页 </span><br><span class="line">+   // 光标移动到非空格符的下一行 </span><br><span class="line">-   // ~移动到非空格符的上一行 </span><br><span class="line">n&lt;space&gt;    // 光标向右移动n个字符位置 </span><br><span class="line">0   // 移动光标到本行最前面的字符处（常用） </span><br><span class="line"><span class="meta">$</span><span class="bash">  // 移动光标到本行最后一个字符处（常用）</span> </span><br><span class="line">H   // 光标移动到屏幕最上方一行的第一个字符 </span><br><span class="line">M   // 光标移动到屏幕中央一行的第一个字符 </span><br><span class="line">L   // 光标移动到屏幕最下方一行的第一个字符 </span><br><span class="line">G   // 光标移动到这个文件的最后一行（常用） </span><br><span class="line">nG  // 移动到第n行 </span><br><span class="line">gg  // 移动到第一行（常用） </span><br><span class="line">n&lt;enter&gt;    // 光标下移n行 </span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>搜索替换 </li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/word </span><br><span class="line">?word </span><br><span class="line">n </span><br><span class="line">N </span><br><span class="line">:n1,n2s/word1/word2/g   // 替换行n1到n2的word1为word2 </span><br><span class="line">:1,%s/word1/word2/g // 同:%s/word1/word2/g，替换全部的word1为word2 </span><br><span class="line">:1,%s/word1/word2/gc    // 同:%s/word1/word2/gc，替换前需要用户确认 </span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>删除、复制、粘贴</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">x   // 常用 </span><br><span class="line">X   // 常用 </span><br><span class="line">nx </span><br><span class="line">dd  // 常用 </span><br><span class="line">ndd // 常用 </span><br><span class="line">d1G // 删除当前行至第一行 </span><br><span class="line">dG  // 删除当前行至最后一行 </span><br><span class="line"><span class="meta">d$</span><span class="bash"> // 删除光标所在处至该行最后一个字符</span> </span><br><span class="line">d0  // 删除光标所在处至该行第一个字符 </span><br><span class="line">yy  // 常用 </span><br><span class="line">nyy // 复制光标向下的n行 </span><br><span class="line">y1G // 复制当前行至第一行 </span><br><span class="line">yG  // 复制当前行至最后一行 </span><br><span class="line">y0  // 复制光标所在字符到该行行首 </span><br><span class="line"><span class="meta">y$</span><span class="bash"> // 复制光标所在字符到该行行尾</span> </span><br><span class="line">p   // 常用 </span><br><span class="line">P   // 常用 </span><br><span class="line">J </span><br><span class="line">c   // 重复删除多个数据 </span><br><span class="line">u   // 撤销修改 </span><br><span class="line">CTRL+r  // 重做上一个动作（常用）</span><br></pre></td></tr></table></figure>
+
+<h2 id="Part-2：一般模式切换到编辑模式的可用按键说明"><a href="#Part-2：一般模式切换到编辑模式的可用按键说明" class="headerlink" title="Part 2：一般模式切换到编辑模式的可用按键说明"></a>Part 2：一般模式切换到编辑模式的可用按键说明</h2><ol>
+<li>进入输入或者替换的编辑模式 </li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i,I </span><br><span class="line">a,A </span><br><span class="line">o,O </span><br><span class="line">r,R</span><br></pre></td></tr></table></figure>
+
+<h2 id="Part-3：一般模式切换到指令行模型的可用的按钮说明"><a href="#Part-3：一般模式切换到指令行模型的可用的按钮说明" class="headerlink" title="Part 3：一般模式切换到指令行模型的可用的按钮说明"></a>Part 3：一般模式切换到指令行模型的可用的按钮说明</h2><ol>
+<li>指令行的存储、离开等指令</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">:w </span><br><span class="line">:w! </span><br><span class="line">:q </span><br><span class="line">:q! </span><br><span class="line">ZZ  // 等同于:wq </span><br><span class="line">ZQ  // 等同于:q! </span><br><span class="line">:w filename // 另存为filename   </span><br><span class="line">:r filename // 在编辑的数据中，读入另一个文件的数据， </span><br><span class="line">       // 即将filename的内容添加到光标所在行后 </span><br><span class="line">:n1,n2 w filename   // 将n1行到n2行的内容存为filename </span><br><span class="line">:! command  // 暂时离开vim到指令行模式下执行command的显示结果 </span><br><span class="line">       // 例如，:! ls /home </span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>vim环境的变更 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:set nu </span><br><span class="line">:set nonu</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Part-4：补充"><a href="#Part-4：补充" class="headerlink" title="Part 4：补充"></a>Part 4：补充</h2><ol>
+<li>批量添加注释</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">方法1：块选择模式</span><br><span class="line">CTRL+v进入块选择模式，移动光标选中需要注释的行，键入I进入行首输入模式输入//（或</span><br><span class="line">者#），输入结束后，重复键入ESC。 </span><br><span class="line">方法2：替换指令 </span><br><span class="line">添加注释    :n1,n2s/^/注释符/g </span><br><span class="line">取消注释    :n1,n2s/^注释符//g </span><br><span class="line">例如， :10,20s#^#//#g（#替代/作为标识符）   // 添加//注释 </span><br><span class="line">   :10,20s/^/#/g   // 添加#注释 </span><br><span class="line">   :10,20s#^//##g  // 取消//注释 </span><br><span class="line">   :10,20s/^#//g   // 取消#注释 </span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>快捷键补充 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 编辑模式 </span><br><span class="line">自动补全    // CTRL+n </span><br><span class="line">\p&lt;     // 插入include，并将光标置于&lt;&gt;中间，暂时不知如何使用 </span><br><span class="line">\ip     // 插入printf，并自动添加\n，将光标置于双引号中间，暂时不知如何使用 </span><br><span class="line">// 一般模式 </span><br><span class="line">dw      // 删除一个单词，配合b将光标置于单词首部 </span><br><span class="line">yw      // 复制一个单词，配合p粘贴</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>-END-</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/base/" rel="tag"># base</a>
+          
+            <a href="/tags/vim/" rel="tag"># vim</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/10/31/vim-note-1/" rel="next" title="vim-note-1">
+                <i class="fa fa-chevron-left"></i> vim-note-1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vim%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">vim笔记（2）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-1%EF%BC%9A%E4%B8%80%E8%88%AC%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8%E3%80%81%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4%E3%80%81%E6%9B%BF%E6%8D%A2%E6%90%9C%E7%B4%A2"><span class="nav-number">1.1.</span> <span class="nav-text">Part 1：一般模式下的光标移动、复制粘贴、替换搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-2%EF%BC%9A%E4%B8%80%E8%88%AC%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2%E5%88%B0%E7%BC%96%E8%BE%91%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8F%AF%E7%94%A8%E6%8C%89%E9%94%AE%E8%AF%B4%E6%98%8E"><span class="nav-number">1.2.</span> <span class="nav-text">Part 2：一般模式切换到编辑模式的可用按键说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-3%EF%BC%9A%E4%B8%80%E8%88%AC%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2%E5%88%B0%E6%8C%87%E4%BB%A4%E8%A1%8C%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8F%AF%E7%94%A8%E7%9A%84%E6%8C%89%E9%92%AE%E8%AF%B4%E6%98%8E"><span class="nav-number">1.3.</span> <span class="nav-text">Part 3：一般模式切换到指令行模型的可用的按钮说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-4%EF%BC%9A%E8%A1%A5%E5%85%85"><span class="nav-number">1.4.</span> <span class="nav-text">Part 4：补充</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
