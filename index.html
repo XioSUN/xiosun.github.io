@@ -229,6 +229,285 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/08/TN3399v3-debug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/11/08/TN3399v3-debug/" itemprop="url">TN3399v3踩坑记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-11-08T22:45:44+08:00">
+                2021-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="TN3399v3踩坑记录"><a href="#TN3399v3踩坑记录" class="headerlink" title="TN3399v3踩坑记录"></a>TN3399v3踩坑记录</h1><p>闲鱼上淘的，本来是广告板上的，缺少资料，价格因此相对便宜。</p>
+<p>网络上已经有大佬踩完了不少坑，产出了不很多靠谱的资料：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://gitee.com/XioSUN/tn3399_v3">XioSUN/tn3399_v3 (gitee.com)</a>（原github仓暂时找不到）；</li>
+<li>TN3399v3玩家交流群<em>673328636</em>。</li>
+</ul>
+<p>开发板的规格参数如下：</p>
+<table>
+<thead>
+<tr>
+<th>部件名称</th>
+<th>芯片型号</th>
+<th>备注说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CPU</td>
+<td>RK3399</td>
+<td>Dual-core Cortex-A72 up to 1.8GHz;Quad-core Cortex-A53 up to 1.4GHz;Mali-T864 GPU</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>K4B8G16</td>
+<td>Dual-channel DDR3 1GB * 4</td>
+</tr>
+<tr>
+<td>Flash</td>
+<td>SanDisk SDINBDG4-16G</td>
+<td>eMMC 5.1</td>
+</tr>
+<tr>
+<td>PMU</td>
+<td>RK808D</td>
+<td></td>
+</tr>
+<tr>
+<td>Ethernet</td>
+<td>RTL8211E</td>
+<td>10/100/1000 Base-T</td>
+</tr>
+<tr>
+<td>WIFI+BT</td>
+<td>AP6255</td>
+<td>WIFI IEEE802.11 a/b/g/n/ac;BT4.2</td>
+</tr>
+<tr>
+<td>SATA 3.0</td>
+<td>JMS578</td>
+<td></td>
+</tr>
+<tr>
+<td>USB 2.0</td>
+<td>FE1.1s</td>
+<td>TYPE A Mount Socket * 2 &amp; 4-Pin Connector Socket * 5</td>
+</tr>
+<tr>
+<td>USB 3.0</td>
+<td>VL817-Q7</td>
+<td>TYPE A Mount Socket * 2</td>
+</tr>
+<tr>
+<td>UART</td>
+<td>SP3232EEN</td>
+<td></td>
+</tr>
+<tr>
+<td>HDMI 2.0+LVDS</td>
+<td>358775G + ALC5640</td>
+<td></td>
+</tr>
+<tr>
+<td>Audio PA</td>
+<td>NS4258</td>
+<td>5W * 2</td>
+</tr>
+</tbody></table>
+<p>从自身的需求出发，暂时没有打算对开发板进行过多的开发，主要尝试实现<strong>两个功能</strong>：</p>
+<ul>
+<li>家庭网盘工具，打通各个端口（PC、手机、平板等）之间的文件存储、访问通道；</li>
+<li>基于arm的远程调试环境，后续或进一步搭建自己的云服务器。</li>
+</ul>
+<h2 id="镜像烧写"><a href="#镜像烧写" class="headerlink" title="镜像烧写"></a>镜像烧写</h2><p>原生的系统为Android，需要刷成Armbian系统。Armbian类Ubuntu，同样派生自Debian。烧写需要进入MASKROM模式，主要的软件工具为瑞芯微官方的<em>AndroidTool_Release_v2.69</em>，以及瑞芯微驱动<em>DirverAssitant_v4.8</em>，在进入MASKROM模式之后，可以直接通过AndroidTool来进行烧写。由于本地之前就安装了adb，所以本地不安装官方驱动也能通过USB来运行adb指令。</p>
+<p>烧写方式有多种，下面列出三种本人尝试过的方式：</p>
+<ol>
+<li>板载<em>recovery键</em>+<em>restart键</em>组合：先按下recovery，再restart，直接进入MASKROM；</li>
+<li>板载<em>restart键</em>与物理短接指定短接点的方式：先参考B站视频1短接指定短接点，再按下restart，可进入MASKROM；</li>
+<li>串口下载，默认的通信频率较高，博主<em>CP2103</em>实测可行，具体参考视频2。</li>
+</ol>
+<blockquote>
+<p>视频1 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xg411T7q9/">Tn3399_v3(rk3399) 4+16刷机救砖方法_哔哩哔哩_bilibili</a></p>
+<p>视频2 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1o54y1J7Nm">Tn3399v3原机系统信息查看以及另一种刷机方式_哔哩哔哩_bilibili</a></p>
+</blockquote>
+<p>喜欢命令行的推荐安装server版本的Armbian，实在接受不了就安装desktop版本。单从系统稳定性和性能来说，实测server版本实在是完胜。所以，你还是喜欢命令行吧，hhh~</p>
+<h2 id="Armbian基本环境搭建"><a href="#Armbian基本环境搭建" class="headerlink" title="Armbian基本环境搭建"></a>Armbian基本环境搭建</h2><p>Armbian系统首次启动需要完成一些设置，需要注意的是：默认账户root的密码为1234。之后也可以通过指令<code># armbian-config</code>来进行配置，其中需要将无线网卡的IP为静态IP，便于之后的开发。</p>
+<p>无线连接相对有线而言，更加方便一点，因此着重介绍WIFI的配置。</p>
+<h3 id="命令行WIFI配置"><a href="#命令行WIFI配置" class="headerlink" title="命令行WIFI配置"></a>命令行WIFI配置</h3><blockquote>
+<p>参考 <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?src=11&timestamp=1636301871&ver=3422&signature=TvCEFPsvrZX7mMBLjDuXxTSsyitwqYbFw0kOj0nnqv1h32d0BSlm-AimXrQyUt1v1UsUNI6mWUi-2rKIgkqJoJHqP2yl1Pt9ISi1isJ547Mi*PR8GMYDUZkpA0RV6Mq6&new=1">在Linux中通过命令行管理WiFi连接 (qq.com)</a></p>
+</blockquote>
+<p>在Linux中，有多种方法可以从命令行激活和禁用无线网络。这里主要使用<strong>nmcli</strong>，许多现代Linux发行版都有预安装。可通过<code>ifconfig</code>指令来查看网卡的名称，本开发板上为<em>wlan0</em>。</p>
+<h4 id="nmcli指令"><a href="#nmcli指令" class="headerlink" title="nmcli指令"></a>nmcli指令</h4><p>使用命令查看Linux系统中保存的网络连接列表和无线设备名称:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nmcli connection</span></span><br></pre></td></tr></table></figure>
+
+<p>通过<code>--rescan yes</code>参数来让<code>nmcli</code>重新扫描你附近所有可用的WiFi网络:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nmcli device wifi list --rescan yes</span></span><br></pre></td></tr></table></figure>
+
+<p>如果想提示输入WiFi密码，请使用<code>-a (--ask)</code>参数:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nmcli -a device wifi connect ziroom501</span></span><br></pre></td></tr></table></figure>
+
+<p>这里的ziroom501为WIFI的SSID，就是一般指的WIFI名称。</p>
+<p>输入正确的密码后，会看到成功连接的信息:    </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Device &#x27;wlan0&#x27; successfully activated with &#x27;a583ac06-30da-4e8b-b9e0-674ec33bece8&#x27;.</span><br></pre></td></tr></table></figure>
+
+<p>断开连接，可运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nmcli c down JioFi4_12E9FE</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="nmtui指令"><a href="#nmtui指令" class="headerlink" title="nmtui指令"></a>nmtui指令</h4><p><strong>Nmtui</strong>是一个基于光标的文本用户界面(TUI)用来控制和与NetworkManager进行交互。</p>
+<p>要在Linux系统中通过命令行连接或断开WiFi网络，可以使用以下命令启动nmtui工具:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nmtui</span></span><br></pre></td></tr></table></figure>
+
+<p>有着较好的用户界面，不进行过多的解释。</p>
+<h3 id="Samba安装"><a href="#Samba安装" class="headerlink" title="Samba安装"></a>Samba安装</h3><h4 id="安装Samba服务"><a href="#安装Samba服务" class="headerlink" title="安装Samba服务"></a>安装Samba服务</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install samba samba-common</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置需要共享的目录"><a href="#配置需要共享的目录" class="headerlink" title="配置需要共享的目录"></a>配置需要共享的目录</h4><p>改变需要共享目录的权限，让其他人可以更改文件和目录，以/home为例（若多人使用同一服务器建议在每个用户家目录单独共享，不建议共享整个home目录，防止误操作删除他人文件）</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="keyword">chmod</span> <span class="number">777</span> /home/ -R</span><br></pre></td></tr></table></figure>
+
+<h4 id="添加samba用户"><a href="#添加samba用户" class="headerlink" title="添加samba用户"></a>添加samba用户</h4><p>添加samba用户，用于其他人或设备认证，这里添加的用户需要在系统账号中存在，否则添加失败。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo smbpasswd -a dwan</span></span><br><span class="line">New SMB password:</span><br><span class="line">Retype new SMB password:</span><br><span class="line">Added user dwan.</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置samba"><a href="#配置samba" class="headerlink" title="配置samba"></a>配置samba</h4><p>先备份sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak，以防改错，修改配置文件时建议养成备份的好习惯，改错了还能恢复，sudo vim /etc/samba/smb.conf 修改配置，添加共享，可直接加到文件尾。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[home] #共享名，该共享标签，可随意取，该名字为在其他电脑上看到的共享名</span><br><span class="line">    comment = home directories #该共享描述</span><br><span class="line">    path = /home/  #共享路径</span><br><span class="line">    browseable = yes   #指定该路径是否允许g浏览访问</span><br><span class="line">    writable = yes #writable用来指定该共享路径是否可写</span><br><span class="line">    create mask = 0700 # 设定创建文件的权限</span><br></pre></td></tr></table></figure>
+
+<h4 id="重启samba服务"><a href="#重启samba服务" class="headerlink" title="重启samba服务"></a>重启samba服务</h4><p>sudo service smbd restart<br>若找不到服务可尝试如下方法，不过得具体看，有的版本路径不是/etc/init.d/samba，比如我的为/etc/init.d/samba-ad-dc，可以看对应路径是啥，决定用哪个命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> /etc/init.d/samba restart</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> /etc/init.d/samba-ad-dc restart</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="在Windows中访问samba服务"><a href="#在Windows中访问samba服务" class="headerlink" title="在Windows中访问samba服务"></a>在Windows中访问samba服务</h4><p>在文件管理器中输入<code>\\linux_ip</code> 便可以看到linux samba服务共享的文件夹。</p>
+<h4 id="将共享路径映射为Windows磁盘（非必须）"><a href="#将共享路径映射为Windows磁盘（非必须）" class="headerlink" title="将共享路径映射为Windows磁盘（非必须）"></a>将共享路径映射为Windows磁盘（非必须）</h4><p>若经常使用的共享，可直接映射为Windows的磁盘，不用每次都输ip，但linux ip变了需要重新映射，所以建议将linux ip设为固定ip。</p>
+<p>我的<em>电脑 -&gt;右键 -&gt;映射网络驱动器</em>，文件夹输入框输入<code>\\linux ip\共享名</code>，不能直接输ip，一定要加上共享名，点击完成。</p>
+<p>接下来你就可以在Windows上编写代码，然后在linux下编译验证了。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mvp_Dawn/article/details/105847485">( ubuntu 20.04 安装配置Samba服务，Windows 和 linux协同工作_mvp_Dawn的博客-CSDN博客_ubuntu20.04安装samba</a></p>
+</blockquote>
+<h3 id="vscode远程调试环境搭建"><a href="#vscode远程调试环境搭建" class="headerlink" title="vscode远程调试环境搭建"></a>vscode远程调试环境搭建</h3><p>本地vscode编辑器，通过SSH与远端的环境进行交互，可以实现本地编辑、远端编译的效果，便于多端适配、跨平台布局。</p>
+<h4 id="g-、gcc、gdb的安装"><a href="#g-、gcc、gdb的安装" class="headerlink" title="g++、gcc、gdb的安装"></a>g++、gcc、gdb的安装</h4><p>需要先在开发板上安装以上三个软件，</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> apt install g++ gdb gcc</span></span><br></pre></td></tr></table></figure>
+
+<p>并通过查看版本来确定是否正常安装，</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> g++ -v</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> gcc -v</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> gdb -v</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="调试规则的制定"><a href="#调试规则的制定" class="headerlink" title="调试规则的制定"></a>调试规则的制定</h4><p>需要先通过本地vscode编辑器的<em>Remote - SSH</em>插件连接远端，并通过vscode在远端安装<em>C/C++插件</em>。其中，比较难以处理的就是编译、调试规则的设置。主要的配置文件在工程的./.vscode文件夹下，下面的配置文件，将源码输出统一放置在<code>../build/out</code>下面，并以<code>.o</code>文件名结尾。</p>
+<h5 id="vscode-launch-json"><a href="#vscode-launch-json" class="headerlink" title="./.vscode/launch.json"></a>./.vscode/launch.json</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">  &quot;configurations&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">          &quot;name&quot;: &quot;C/C++&quot;,</span><br><span class="line">          &quot;type&quot;: &quot;cppdbg&quot;,</span><br><span class="line">          &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">          &quot;program&quot;: &quot;$&#123;fileDirname&#125;/../build/out/$&#123;fileBasenameNoExtension&#125;.o&quot;,</span><br><span class="line">          &quot;args&quot;: [],</span><br><span class="line">          &quot;stopAtEntry&quot;: false,</span><br><span class="line">          &quot;cwd&quot;: &quot;$&#123;workspaceFolder&#125;&quot;,</span><br><span class="line">          &quot;environment&quot;: [],</span><br><span class="line">          &quot;externalConsole&quot;: false,</span><br><span class="line">          &quot;MIMode&quot;: &quot;gdb&quot;,</span><br><span class="line">          &quot;miDebuggerPath&quot;: &quot;/usr/bin/gdb&quot;,</span><br><span class="line">          &quot;preLaunchTask&quot;: &quot;compile&quot;,</span><br><span class="line">          &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                  &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                  &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                  &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">          ]</span><br><span class="line">      &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="vscode-tasks-json"><a href="#vscode-tasks-json" class="headerlink" title=".vscode/tasks.json"></a>.vscode/tasks.json</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;,</span><br><span class="line">    &quot;tasks&quot;: [&#123;</span><br><span class="line">            &quot;label&quot;: &quot;compile&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;g++&quot;,</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;/../build/out/$&#123;fileBasenameNoExtension&#125;.o&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;problemMatcher&quot;: &#123;</span><br><span class="line">                &quot;owner&quot;: &quot;cpp&quot;,</span><br><span class="line">                &quot;fileLocation&quot;: [</span><br><span class="line">                    &quot;relative&quot;,</span><br><span class="line">                    &quot;$&#123;workspaceRoot&#125;&quot;</span><br><span class="line">                ],</span><br><span class="line">                &quot;pattern&quot;: &#123;</span><br><span class="line">                    &quot;regexp&quot;: &quot;^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$&quot;,</span><br><span class="line">                    &quot;file&quot;: 1,</span><br><span class="line">                    &quot;line&quot;: 2,</span><br><span class="line">                    &quot;column&quot;: 3,</span><br><span class="line">                    &quot;severity&quot;: 4,</span><br><span class="line">                    &quot;message&quot;: 5</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;group&quot;: &#123;</span><br><span class="line">                &quot;kind&quot;: &quot;build&quot;,</span><br><span class="line">                &quot;isDefault&quot;: true</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>-END-</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/01/vim-note-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -248,7 +527,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/11/01/vim-note-2/" itemprop="url">vim-note-2</a></h1>
+                <a class="post-title-link" href="/2021/11/01/vim-note-2/" itemprop="url">vim笔记（2）</a></h1>
         
 
         <div class="post-meta">
@@ -403,7 +682,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/10/31/vim-note-1/" itemprop="url">vim-note-1</a></h1>
+                <a class="post-title-link" href="/2021/10/31/vim-note-1/" itemprop="url">vim笔记（1）</a></h1>
         
 
         <div class="post-meta">
@@ -561,7 +840,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/10/31/vim-first-meet/" itemprop="url">vim-first-meet</a></h1>
+                <a class="post-title-link" href="/2021/10/31/vim-first-meet/" itemprop="url">初识vim</a></h1>
         
 
         <div class="post-meta">
@@ -688,7 +967,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/10/31/cpp-types-conversions/" itemprop="url">cpp-types-conversions</a></h1>
+                <a class="post-title-link" href="/2021/10/31/cpp-types-conversions/" itemprop="url">C++语言在type conversions上的一个问题</a></h1>
         
 
         <div class="post-meta">
@@ -832,7 +1111,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -845,7 +1124,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
