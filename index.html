@@ -310,6 +310,117 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="keyword">int</span>&gt; vi;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt;::iterator it = vi.<span class="built_in">begin</span>();</span><br><span class="line"><span class="keyword">for</span>(vector&lt;<span class="keyword">int</span>&gt;::iterator it=vi.<span class="built_in">begin</span>();it!=vi.<span class="built_in">end</span>();it++) &#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,*it);</span><br><span class="line">&#125;</span><br><span class="line">使用<span class="function"><span class="keyword">auto</span></span></span><br><span class="line"><span class="function"><span class="title">for</span> <span class="params">(<span class="keyword">auto</span> it = vi.begin(); it != vi.end(); it++)</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; *it &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// vi[i] 和 *(vi.begin() + i) 是等价的</span></span><br><span class="line"><span class="comment">// 允许 i++， ++i</span></span><br></pre></td></tr></table></figure>
 
 
+
+<h1 id="针对性练习"><a href="#针对性练习" class="headerlink" title="针对性练习"></a>针对性练习</h1><p>刷题时，建议将每种类型的前1~2题作为例题进行学习，其他题目作为练习题，考试前一周，建议将每种题型过一遍。</p>
+<h2 id="1-单调栈"><a href="#1-单调栈" class="headerlink" title="1. 单调栈"></a>1. 单调栈</h2><ol>
+<li>LeetCode 84 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/largest-rectangle-in-histogram">柱状图中最大的矩形</a></li>
+<li>LeetCode 85 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximal-rectangle">最大矩形</a></li>
+<li>LeetCode 739 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/daily-temperatures">每日温度</a></li>
+<li>LeetCode 503 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/next-greater-element-ii">下一个更大元素 II</a></li>
+<li>LeetCode 42 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/trapping-rain-water">接雨水</a></li>
+<li>LeetCode 901 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/online-stock-span">股票价格跨度</a></li>
+<li>LeetCode 239 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sliding-window-maximum">滑动窗口最大值</a></li>
+</ol>
+<h2 id="2-并查集"><a href="#2-并查集" class="headerlink" title="2. 并查集"></a>2. 并查集</h2><ol>
+<li>LeetCode 684 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/redundant-connection">冗余连接</a></li>
+<li>LeetCode 685 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/redundant-connection-ii">冗余连接 II</a></li>
+<li>剑指offer II 116 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/bLyHh0/">省份数量</a></li>
+<li>LeetCode 737 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sentence-similarity-ii">句子相似性 II</a></li>
+<li>LeetCode 1102 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-with-maximum-minimum-value">得分最高的路径</a></li>
+<li>LeetCode 1135 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/connecting-cities-with-minimum-cost">最低成本联通所有城市</a></li>
+<li>LeetCode 261 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/graph-valid-tree">以图判树</a></li>
+<li>LeetCode 1061 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lexicographically-smallest-equivalent-string/">按字典序排列最小的等效字符串</a></li>
+<li>LeetCode 323 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-connected-components-in-an-undirected-graph">无向图中连通分量的数目</a></li>
+<li>LeetCode 924 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimize-malware-spread">尽量减少恶意软件的传播</a></li>
+</ol>
+<h2 id="3-滑动窗口"><a href="#3-滑动窗口" class="headerlink" title="3. 滑动窗口"></a>3. 滑动窗口</h2><ol>
+<li>LeetCode 1208 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/get-equal-substrings-within-budget">尽可能使字符串相等</a></li>
+<li>LeetCode 209 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-size-subarray-sum">长度最小的子数组</a></li>
+<li>LeetCode 3 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters">无重复字符的最长子串</a></li>
+<li>LeetCode 1004 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/max-consecutive-ones-iii">最大连续1的个数 III</a></li>
+<li>LeetCode 340 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-with-at-most-k-distinct-characters">至多包含 K 个不同字符的最长子串</a></li>
+<li>LeetCode 1151 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-swaps-to-group-all-1s-together">最少交换次数来组合所有的1</a></li>
+<li>LeetCode 159 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-with-at-most-two-distinct-characters">至多包含两个不同字符的最长子串</a></li>
+<li>LeetCode 1100 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-k-length-substrings-with-no-repeated-characters">长度为 K 的无重复字符子串</a></li>
+</ol>
+<h2 id="4-前缀-amp-哈希"><a href="#4-前缀-amp-哈希" class="headerlink" title="4. 前缀&amp;哈希"></a>4. 前缀&amp;哈希</h2><ol>
+<li>LeetCode 560 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/subarray-sum-equals-k">和为 K 的子数组</a></li>
+<li>LeetCode 523 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/continuous-subarray-sum">连续的子数组和</a></li>
+<li>LeetCode 974 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/subarray-sums-divisible-by-k">和可被 K 整除的子数组</a></li>
+<li>LeetCode 304 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/range-sum-query-2d-immutable">二维区域和检索 - 矩阵不可变</a></li>
+</ol>
+<h2 id="5-差分"><a href="#5-差分" class="headerlink" title="5. 差分"></a>5. 差分</h2><ol>
+<li>LeetCode 1109 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/corporate-flight-bookings">航班预订统计</a></li>
+<li>LeetCode 1094 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/car-pooling">拼车</a></li>
+<li>LeetCode 121 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock">买卖股票的最佳时机</a></li>
+<li>LeetCode 122 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii">买卖股票的最佳时机 II</a></li>
+<li>LeetCode 253 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/meeting-rooms-ii">会议室 II</a></li>
+</ol>
+<h2 id="6-拓扑排序"><a href="#6-拓扑排序" class="headerlink" title="6. 拓扑排序"></a>6. 拓扑排序</h2><ol>
+<li>LeetCode 210 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/course-schedule-ii">课程表 II</a></li>
+<li>LeetCode 444 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sequence-reconstruction">序列重建</a></li>
+<li>LeetCode 269 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/alien-dictionary">火星词典</a></li>
+</ol>
+<h2 id="7-字符串"><a href="#7-字符串" class="headerlink" title="7. 字符串"></a>7. 字符串</h2><ol>
+<li>LeetCode 5 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-palindromic-substring">最长回文子串</a></li>
+<li>LeetCode 93 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/restore-ip-addresses">复原 IP 地址</a></li>
+<li>LeetCode 43 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/multiply-strings">字符串相乘</a></li>
+<li>LeetCode 227 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/basic-calculator-ii">基本计算器 II</a></li>
+</ol>
+<h2 id="8-BFS"><a href="#8-BFS" class="headerlink" title="8. BFS"></a>8. BFS</h2><ol>
+<li>LeetCode 127 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-ladder">单词接龙</a></li>
+<li>LeetCode 130 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/surrounded-regions">被围绕的区域</a></li>
+<li>LeetCode 317 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shortest-distance-from-all-buildings">离建筑物最近的距离</a></li>
+<li>LeetCode 505 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/the-maze-ii">迷宫 II</a></li>
+<li>LeetCode 1263 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-moves-to-move-a-box-to-their-target-location">推箱子</a></li>
+<li>LeetCode 1197 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-knight-moves">进击的骑士</a></li>
+<li>LeetCode 815 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/bus-routes">公交路线</a></li>
+<li>LeetCode 934 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shortest-bridge">最短的桥</a></li>
+</ol>
+<h2 id="9-DFS"><a href="#9-DFS" class="headerlink" title="9. DFS"></a>9. DFS</h2><ol>
+<li>LeetCode 200 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-islands">岛屿数量</a></li>
+<li>LeetCode 934 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shortest-bridge">最短的桥</a></li>
+<li>LeetCode 1102 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-with-maximum-minimum-value">得分最高的路径</a></li>
+<li>LeetCode 531 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lonely-pixel-i">孤独像素 I</a></li>
+<li>LeetCode 533 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lonely-pixel-ii">孤独像素 II</a></li>
+<li>LeetCode 332 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reconstruct-itinerary">重新安排行程</a></li>
+<li>LeetCode 113 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-sum-ii">路径总和 II</a></li>
+<li>LeetCode 529 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minesweeper">扫雷游戏</a></li>
+</ol>
+<h2 id="10-DP"><a href="#10-DP" class="headerlink" title="10. DP"></a>10. DP</h2><ol>
+<li>LeetCode 213 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/house-robber-ii">打家劫舍 II</a></li>
+<li>LeetCode 337 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/house-robber-iii">打家劫舍 III</a></li>
+<li>LeetCode 1043 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/partition-array-for-maximum-sum">分隔数组以得到最大和</a></li>
+<li>LeetCode 416 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/partition-equal-subset-sum">分割等和子集</a></li>
+<li>LeetCode 123 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii">买卖股票的最佳时机 III</a></li>
+<li>LeetCode 62 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/unique-paths">不同路径</a></li>
+<li>LeetCode 63<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/unique-paths-ii">不同路径 II</a></li>
+<li>LeetCode 651 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/4-keys-keyboard">4键键盘</a></li>
+<li>LeetCode 361 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/bomb-enemy">轰炸敌人</a></li>
+<li>LeetCode 1066 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/campus-bikes-ii">校园自行车分配 II</a></li>
+<li>LeetCode 750 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-corner-rectangles">角矩形的数量</a></li>
+<li>LeetCode 1230 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/toss-strange-coins">抛掷硬币</a></li>
+<li>LeetCode 1055 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shortest-way-to-form-string">形成字符串的最短路径</a></li>
+<li>LeetCode 139 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-break">单词拆分</a></li>
+</ol>
+<h2 id="11-贪心"><a href="#11-贪心" class="headerlink" title="11. 贪心"></a>11. 贪心</h2><ol>
+<li>LeetCode 452 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-number-of-arrows-to-burst-balloons">用最少数量的箭引爆气球</a></li>
+<li>LeetCode 1231 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/divide-chocolate">分享巧克力</a></li>
+<li>LeetCode 1247 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-swaps-to-make-strings-equal">交换字符使得字符串相同</a></li>
+<li>LeetCode 45 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/jump-game-ii">跳跃游戏 II</a></li>
+<li>LeetCode 621 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/task-scheduler">任务调度器</a></li>
+<li>LeetCode 376 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/wiggle-subsequence">摆动序列</a></li>
+<li>LeetCode 517 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/super-washing-machines">超级洗衣机</a></li>
+</ol>
+<h2 id="12-字典树"><a href="#12-字典树" class="headerlink" title="12. 字典树"></a>12. 字典树</h2><ol>
+<li>LeetCode 820 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/short-encoding-of-words">单词的压缩编码</a></li>
+<li>LeetCode 1231 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/divide-chocolate">分享巧克力</a></li>
+<li>LeetCode 648 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/replace-words">单词替换</a></li>
+<li>LeetCode 208 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/implement-trie-prefix-tree">实现 Trie (前缀树)</a></li>
+<li>LeetCode 212 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-search-ii">单词搜索 II</a></li>
+</ol>
+<p>-EOF-</p>
+
           
         
       
