@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="cpp,tech," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="算法刷题必备C++标准库STL的使用 参考C++标准库STL的使用_xianyuerrr的博客-CSDN博客  公共函数下述模板类&#x2F;工具类都有的接口。 clear()用来清空vector中的所有元素 erase() 删除单个元素：erase(it)，删除迭代器处的元素； 删除一个区间内的所有元素：erase(first,last)，即删除(first,last )区间内的元素。  size()用来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法刷题必备">
+<meta property="og:url" content="http://example.com/2022/03/14/%E5%88%B7%E9%A2%98%E5%BF%85%E5%A4%87-C++%E6%A0%87%E5%87%86%E5%BA%93STL%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="ToDay">
+<meta property="og:description" content="算法刷题必备C++标准库STL的使用 参考C++标准库STL的使用_xianyuerrr的博客-CSDN博客  公共函数下述模板类&#x2F;工具类都有的接口。 clear()用来清空vector中的所有元素 erase() 删除单个元素：erase(it)，删除迭代器处的元素； 删除一个区间内的所有元素：erase(first,last)，即删除(first,last )区间内的元素。  size()用来">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-14T13:44:44.000Z">
+<meta property="article:modified_time" content="2022-03-14T13:42:39.585Z">
+<meta property="article:author" content="XioSUN">
+<meta property="article:tag" content="cpp">
+<meta property="article:tag" content="tech">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2022/03/14/刷题必备-C++标准库STL的使用/"/>
+
+
+
+
+
+  <title>算法刷题必备 | ToDay</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ToDay</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Je pense, donc je suis</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/14/%E5%88%B7%E9%A2%98%E5%BF%85%E5%A4%87-C++%E6%A0%87%E5%87%86%E5%BA%93STL%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToDay">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法刷题必备</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-03-14T21:44:44+08:00">
+                2022-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="算法刷题必备"><a href="#算法刷题必备" class="headerlink" title="算法刷题必备"></a>算法刷题必备</h1><h2 id="C-标准库STL的使用"><a href="#C-标准库STL的使用" class="headerlink" title="C++标准库STL的使用"></a>C++标准库STL的使用</h2><blockquote>
+<p>参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43874834/article/details/115415687">C++标准库STL的使用_xianyuerrr的博客-CSDN博客</a></p>
+</blockquote>
+<h3 id="公共函数"><a href="#公共函数" class="headerlink" title="公共函数"></a>公共函数</h3><p>下述模板类/工具类都有的接口。</p>
+<h4 id="clear"><a href="#clear" class="headerlink" title="clear()"></a>clear()</h4><p>用来清空vector中的所有元素</p>
+<h4 id="erase"><a href="#erase" class="headerlink" title="erase()"></a>erase()</h4><ol>
+<li>删除单个元素：erase(it)，删除迭代器处的元素；</li>
+<li>删除一个区间内的所有元素：<code>erase(first,last)</code>，即删除(first,last )区间内的元素。</li>
+</ol>
+<h4 id="size"><a href="#size" class="headerlink" title="size()"></a>size()</h4><p>用来获得vector中元素的个数</p>
+<h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><p>向量，一种便于拓展的数组超集。</p>
+<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义</span></span><br><span class="line">vector&lt;<span class="keyword">typename</span>&gt; vec; <span class="comment">// typename可以是任何基本类型</span></span><br><span class="line">vector&lt;<span class="keyword">typename</span>&gt; vec[size]; <span class="comment">// 确定了vector.size()的大小，也就是其一维度</span></span><br><span class="line">vector&lt;vector&lt;<span class="keyword">int</span>&gt; &gt;vec; <span class="comment">// 更具灵活性</span></span><br><span class="line"></span><br><span class="line">注意：<span class="keyword">typename</span>也可以是STL标准容器，但可能需要在定义时在 &gt;&gt; 符号之间加上空格（C++<span class="number">11</span>之前的编译器会将其视为移位操作，导致编译错误）</span><br><span class="line"></span><br><span class="line"><span class="comment">// e.g.:</span></span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line">vector&lt;node&gt; vec; <span class="comment">// node为结构体</span></span><br><span class="line">vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; vec; <span class="comment">// &gt;&gt;之间最好加空格</span></span><br><span class="line">vector&lt;vector&lt;<span class="keyword">int</span>&gt; &gt; vec;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h4><p>下标访问或通过迭代器访问</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="keyword">int</span>&gt; vi;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt;::iterator it = vi.<span class="built_in">begin</span>();</span><br><span class="line"><span class="keyword">for</span>(vector&lt;<span class="keyword">int</span>&gt;::iterator it=vi.<span class="built_in">begin</span>();it!=vi.<span class="built_in">end</span>();it++) &#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,*it);</span><br><span class="line">&#125;</span><br><span class="line">使用<span class="function"><span class="keyword">auto</span></span></span><br><span class="line"><span class="function"><span class="title">for</span> <span class="params">(<span class="keyword">auto</span> it = vi.begin(); it != vi.end(); it++)</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; *it &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// vi[i] 和 *(vi.begin() + i) 是等价的</span></span><br><span class="line"><span class="comment">// 允许 i++， ++i</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h4><h5 id="push-back-i"><a href="#push-back-i" class="headerlink" title="push_back(i)"></a>push_back(i)</h5><h5 id="pop-back"><a href="#pop-back" class="headerlink" title="pop_back()"></a>pop_back()</h5><p>删除尾元素</p>
+<h5 id="insert-vec-begin-2-x"><a href="#insert-vec-begin-2-x" class="headerlink" title="insert(vec.begin()+2, x)"></a>insert(vec.begin()+2, x)</h5><p>使用迭代器进行数据插入。</p>
+<h4 id="note"><a href="#note" class="headerlink" title="note:"></a>note:</h4><blockquote>
+<p>类似for循环中，可以使用&amp;i，即通过使用引用来降低程序内存的消耗。</p>
+<p>e.g.</p>
+<p>for (auto &amp;i: items) {};</p>
+</blockquote>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p>内部自动排序（增序）且不包含重复元素的容器。如果涉及元素不唯一的情况，需要使用multiset。</p>
+<p>类似的unordered_set()，用散列替代set底层的Red Black Tree（一种自平衡二叉查找树），用于处理只去重但不排序的需求，速度快于set。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line">set&lt;<span class="keyword">typename</span>&gt; s;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="访问-1"><a href="#访问-1" class="headerlink" title="访问"></a>访问</h4><p>只能通过迭代器访问</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">set&lt;<span class="keyword">typename</span>&gt;::iterator it;</span><br><span class="line">set&lt;<span class="keyword">typename</span>&gt; st;</span><br><span class="line"><span class="keyword">for</span> (set&lt;<span class="keyword">typename</span>&gt;::iterator it = st.<span class="built_in">begin</span>(); it != st.<span class="built_in">end</span>(),++it) &#123;</span><br><span class="line">    cout &lt;&lt; *it &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 不能使用it &lt; st.begin() 的写法</span></span><br><span class="line"><span class="comment">// 除了vector和string 之外的STL容器都不支持 *(it + i)的访问方式</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="常用函数-1"><a href="#常用函数-1" class="headerlink" title="常用函数"></a>常用函数</h4><h5 id="insert-x"><a href="#insert-x" class="headerlink" title="insert(x)"></a>insert(x)</h5><p>将x插入set容器，并自动递增排序和去重，时间复杂度为O(logN)</p>
+<h5 id="find-x"><a href="#find-x" class="headerlink" title="find(x)"></a>find(x)</h5><p>返回set中值为x的迭代器，时间复杂度为(logN)</p>
+<h3 id="unordered-set"><a href="#unordered-set" class="headerlink" title="unordered_set"></a>unordered_set</h3><h4 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h4><p>无序容器，和set的区别就是，unordered_set容器不会自行对存储的数据进行排序。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">unordered_set&lt;<span class="keyword">int</span>&gt; us;</span><br><span class="line"><span class="function">unordered_set&lt;<span class="keyword">int</span>&gt; <span class="title">us</span><span class="params">(us1)</span></span>; <span class="comment">// 拷贝构造</span></span><br><span class="line"><span class="function">unordered_set&lt;<span class="keyword">int</span>&gt; <span class="title">us</span><span class="params">(us1.begin(), us1.end())</span></span>; <span class="comment">// 使用迭代器构造</span></span><br><span class="line">unordered_set&lt;<span class="keyword">int</span>&gt; us&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">10</span>,<span class="number">10</span>&#125;; <span class="comment">// 使用初值构造</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="访问-2"><a href="#访问-2" class="headerlink" title="访问"></a>访问</h4><p>使用迭代器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for(unordered_set&lt;int&gt;::iterator it = set1.begin(); it != set1.end(); ++it)</span><br><span class="line">    cout &lt;&lt; *it &lt;&lt; &quot; &quot;;</span><br></pre></td></tr></table></figure>
+
+<p>C++11新方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (int x: s) &#123;</span><br><span class="line">	cout &lt;&lt; x &lt;&lt; &quot; &quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="常用函数-2"><a href="#常用函数-2" class="headerlink" title="常用函数"></a>常用函数</h4><h4 id="empty"><a href="#empty" class="headerlink" title="empty()"></a>empty()</h4><h4 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h4><p>返回迭代器</p>
+<h4 id="count"><a href="#count" class="headerlink" title="count()"></a>count()</h4><p>统计出现的次数</p>
+<h4 id="insert"><a href="#insert" class="headerlink" title="insert()"></a>insert()</h4><h4 id="emplace"><a href="#emplace" class="headerlink" title="emplace()"></a>emplace()</h4><h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><h4 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span> <span class="comment">// C++标准定义的头文件</span></span></span><br><span class="line"><span class="comment">// #include &lt;cstring&gt;	// C++标准为了兼容之前的库而添加</span></span><br><span class="line"><span class="comment">// #include &lt;string.h&gt; // C版本的头文件</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string str;</span><br><span class="line">string str = <span class="string">&quot;hello&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="访问-3"><a href="#访问-3" class="headerlink" title="访问"></a>访问</h4><h5 id="下标访问"><a href="#下标访问" class="headerlink" title="下标访问"></a>下标访问</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; str.<span class="built_in">length</span>(); i++) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, str[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="读入或者输出整个字符串"><a href="#读入或者输出整个字符串" class="headerlink" title="读入或者输出整个字符串"></a>读入或者输出整个字符串</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string str;</span><br><span class="line">cin &gt;&gt; str;</span><br><span class="line">cout &lt;&lt; str;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="printf输出string"><a href="#printf输出string" class="headerlink" title="printf输出string"></a>printf输出string</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, str.<span class="built_in">c_str</span>());	<span class="comment">// 将string转成字符数组</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="迭代器访问"><a href="#迭代器访问" class="headerlink" title="迭代器访问"></a>迭代器访问</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="keyword">for</span> (string::iterator it = str.<span class="built_in">begin</span>(); it != str.<span class="built_in">end</span>(); it++) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, *it);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="常用函数-3"><a href="#常用函数-3" class="headerlink" title="常用函数"></a>常用函数</h4><h5 id="operator"><a href="#operator" class="headerlink" title="operator+="></a>operator+=</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string str1 = <span class="string">&quot;hello&quot;</span>, str2 = <span class="string">&quot; world&quot;</span>, str3;</span><br><span class="line">str3 = str1 + str2;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="compare-operator"><a href="#compare-operator" class="headerlink" title="compare operator"></a>compare operator</h5><p>两个string可以直接使用<code>==, !=, &lt;, &lt;=, &gt;, &gt;=</code> 比较大小，规则是字典序</p>
+<h5 id="length-size"><a href="#length-size" class="headerlink" title="length() / size()"></a>length() / size()</h5><h5 id="insert-O-N"><a href="#insert-O-N" class="headerlink" title="insert(), O(N)"></a>insert(), O(N)</h5><ul>
+<li>insert(pos, string)，在pos位置插入字符串 string</li>
+<li>insert(it, it2, it3)，<strong>it</strong>为原字符串的欲插入位置，<strong>it2</strong>和<strong>it3</strong>是待插入字符串的首尾迭代器</li>
+</ul>
+<h5 id="substr-O-len"><a href="#substr-O-len" class="headerlink" title="substr(), O(len)"></a>substr(), O(len)</h5><p><code>str.substr(pos, len);</code>返回从pos开始、长度为len的子串。</p>
+<h5 id="string-npos"><a href="#string-npos" class="headerlink" title="string::npos"></a>string::npos</h5><p>是一个常数，本身数值为-1，由于是unsigned_int类型，所以也可以当做unsigned_int的最大值，常作为find函数失配的返回值。</p>
+<h5 id="find-O-nm"><a href="#find-O-nm" class="headerlink" title="find(), O(nm)"></a>find(), O(nm)</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">str.<span class="built_in">find</span>(str2);</span><br><span class="line"><span class="comment">// 当 str2 是 str 的子串时，返回其在 str 中第一次出现的位置；</span></span><br><span class="line"><span class="comment">// 如果 str2 不是 str 的子串，返回 string::npos</span></span><br><span class="line"></span><br><span class="line">str.<span class="built_in">find</span>(str2, pos);</span><br><span class="line"><span class="comment">// 从 pos 号位开始匹配 str2，返回值与上相同</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>replace(). O(len)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str.<span class="built_in">replace</span>(pos, len, str2);	<span class="comment">// 把 str 从 pos 号位开始，长度为 len 的子串替换为 str2</span></span><br><span class="line"></span><br><span class="line">str.<span class="built_in">replace</span>(it1, it2, str2);	<span class="comment">// 把 [it1, it2) 范围内的子串替换为 str2</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><h4 id="定义-4"><a href="#定义-4" class="headerlink" title="定义"></a>定义</h4><p><strong>映射</strong>，可以将任何基本类型映射到任何基本类型。内部是<strong>红黑树</strong>实现的（set也是），会以<strong>键</strong> <strong>从小到大</strong>的顺序自动排序。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="访问-4"><a href="#访问-4" class="headerlink" title="访问"></a>访问</h4><ul>
+<li><p>通过下标访问 <code>mp[key]</code></p>
+</li>
+<li><p>通过迭代器访问</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">map&lt;typename1, typename2&gt;::iterator it;</span><br><span class="line">it-&gt;first; <span class="comment">// 访问 key</span></span><br><span class="line">it-&gt;second; <span class="comment">// 访问 value</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="常用函数-4"><a href="#常用函数-4" class="headerlink" title="常用函数"></a>常用函数</h4><h5 id="find-1"><a href="#find-1" class="headerlink" title="find()"></a>find()</h5><p>find(key) 返回键为 key 的映射的迭代器，O(logN)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map&lt;typename1, typename2&gt; mp;</span><br><span class="line">map&lt;typename1, typename2&gt;::iterator it = mp.<span class="built_in">find</span>(key);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h3><p>队列先进先出。双端队列deque，优先级队列priority_queue。</p>
+<h4 id="定义-5"><a href="#定义-5" class="headerlink" title="定义"></a>定义</h4><figure class="highlight plaintext"><figcaption><span><queue></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">queue&lt;typename&gt; name;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="访问-5"><a href="#访问-5" class="headerlink" title="访问"></a>访问</h4><p>由于队列<strong>先进先出</strong>，所以只能通过 <code>front()</code> 来访问队首元素，或者是通过 <code>back()</code> 来访问队尾元素</p>
+<h4 id="常用函数-5"><a href="#常用函数-5" class="headerlink" title="常用函数"></a>常用函数</h4><h5 id="push"><a href="#push" class="headerlink" title="push()"></a>push()</h5><p><code>push(x)</code>，将 <code>x</code> 加入队列，O(1)</p>
+<h5 id="front-、back"><a href="#front-、back" class="headerlink" title="front()、back()"></a>front()、back()</h5><p><code>front() / back()</code> 获取 队首 / 队尾 元素，O(1)</p>
+<h5 id="pop"><a href="#pop" class="headerlink" title="pop()"></a>pop()</h5><p><code>pop()</code>，令队首元素出队，O(1)</p>
+<h5 id="empty-1"><a href="#empty-1" class="headerlink" title="empty()"></a>empty()</h5><p><code>empty()</code>，检测队列是否为空，O(1)</p>
+<p>注意：使用 <code>front() / pop()</code> 前， 必须使用 <code>empty()</code> 判断队列是否为空</p>
+<h3 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h3><p>优先级队列，底层是使用<strong>堆</strong>来进行实现的，队首元素一定是当前队列中优先级最高的</p>
+<h4 id="定义-6"><a href="#定义-6" class="headerlink" title="定义"></a>定义</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line">priority_queue&lt;<span class="keyword">typename</span>&gt; name;	 <span class="comment">//对于基础类型 默认是大顶堆</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="访问-6"><a href="#访问-6" class="headerlink" title="访问"></a>访问</h4><p>优先级队列没有 <code>front()</code> 函数 和 <code>back()</code> 函数，只能通过 <code>top()</code> 函数来访问队首元素（<strong>堆顶</strong>）</p>
+<h4 id="常用函数-6"><a href="#常用函数-6" class="headerlink" title="常用函数"></a>常用函数</h4><h5 id="push-x"><a href="#push-x" class="headerlink" title="push(x)"></a>push(x)</h5><p>令 x 入队，O(logN)</p>
+<h5 id="top"><a href="#top" class="headerlink" title="top()"></a>top()</h5><p>获取队首元素，O(1)</p>
+<h5 id="pop-1"><a href="#pop-1" class="headerlink" title="pop()"></a>pop()</h5><p>堆顶出队</p>
+<h5 id="empty-2"><a href="#empty-2" class="headerlink" title="empty()"></a>empty()</h5><p>检测队列是否为空</p>
+<h4 id="优先级设计"><a href="#优先级设计" class="headerlink" title="优先级设计"></a>优先级设计</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">priority_queue&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">priority_queue&lt;<span class="keyword">int</span>, vector&lt;<span class="keyword">int</span>&gt;, less&lt;<span class="keyword">int</span>&gt; &gt; q;</span><br><span class="line">priority_queue&lt;<span class="keyword">int</span>, vector&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt; &gt; c;	<span class="comment">//这样就是小顶堆</span></span><br><span class="line"><span class="comment">// vector&lt;int&gt; 是承载底层数据结构堆（heap）的容器</span></span><br><span class="line"><span class="comment">// less&lt;int&gt; 是对第一个参数的比较类</span></span><br><span class="line"><span class="comment">// less&lt;int&gt; 表示数字越大优先级越高</span></span><br><span class="line"><span class="comment">// greater&lt;int&gt; 表示数字越小优先级越高</span></span><br></pre></td></tr></table></figure>
+
+<p>sswTODO 暂时不会用到，先省略。</p>
+<h3 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h3><p>栈，<strong>后进先出</strong></p>
+<h4 id="定义-7"><a href="#定义-7" class="headerlink" title="定义"></a>定义</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line">stack&lt;<span class="keyword">typename</span>&gt; name;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="访问-7"><a href="#访问-7" class="headerlink" title="访问"></a>访问</h4><p>由于栈是一种后进先出的数据结构，所以只能通过<code>top()</code> 来访问<strong>栈顶</strong>元素</p>
+<h4 id="常用函数-7"><a href="#常用函数-7" class="headerlink" title="常用函数"></a>常用函数</h4><h5 id="push-x-1"><a href="#push-x-1" class="headerlink" title="push(x)"></a>push(x)</h5><p>将<code>x</code>入栈，O(1)</p>
+<h5 id="top-1"><a href="#top-1" class="headerlink" title="top()"></a>top()</h5><p>获取栈顶元素，O(1)</p>
+<h5 id="pop-2"><a href="#pop-2" class="headerlink" title="pop()"></a>pop()</h5><p>弹出栈顶元素，O(1)</p>
+<h5 id="empty-3"><a href="#empty-3" class="headerlink" title="empty()"></a>empty()</h5><p>检测是否为空，O(1)</p>
+<h3 id="pair"><a href="#pair" class="headerlink" title="pair"></a>pair</h3><p>把两个元素绑在一起，但又不想定义结构体时，<strong>pair</strong>是一个替代品，也就是说<strong>pair</strong>可以看作一个内部有两个元素的结构体。<strong>map</strong>的内部实现涉及<strong>pair</strong>。可以作为<strong>map</strong> 的键值对来插入。</p>
+<h4 id="定义-8"><a href="#定义-8" class="headerlink" title="定义"></a>定义</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;utility&gt;</span> <span class="comment">// 可以使用 &lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line">pair&lt;typename1, typename2&gt; name;</span><br><span class="line"><span class="function">pair&lt;typename1, typename2&gt; <span class="title">name</span><span class="params">(value1, value2)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 临时构建</span></span><br><span class="line">pair&lt;type1, type2&gt;(value1, value2);</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"><span class="built_in">make_pair</span>(value1, value2);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="访问-8"><a href="#访问-8" class="headerlink" title="访问"></a>访问</h4><p>pair只有两个元素，分别是 <strong>first</strong> 和 <strong>second</strong>，按正常结构体去访问就好</p>
+<h4 id="常用函数-8"><a href="#常用函数-8" class="headerlink" title="常用函数"></a>常用函数</h4><h5 id="比较操作数"><a href="#比较操作数" class="headerlink" title="比较操作数"></a>比较操作数</h5><p>以&lt;first, second&gt; 元组方式比较</p>
+<h3 id="algorithm头文件下常用函数"><a href="#algorithm头文件下常用函数" class="headerlink" title="algorithm头文件下常用函数"></a>algorithm头文件下常用函数</h3><p>定义</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h4><p>排序函数，效率较高。一般不推荐C语言中的qsort()，因为其比较繁琐。</p>
+<p>sort规避了经典快排中可能出现的复杂度退化到 O(n ^2) 的极端情况。</p>
+<p>STL标准容器中，只有 vector、string、deque是可以使用 sort。因为像是 set、map这种内部是使用红黑树实现的，元素本身就有序。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span>(首元素地址, 尾元素的下一个地址, 比较函数(非必填));</span><br><span class="line"><span class="comment">// 默认进行递增排序</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a&gt;b;</span><br><span class="line">    <span class="comment">// a&gt;b 时把 a 放在 b 前面</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// struct 数组的排序</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, y;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 按 x 的值递减排序</span></span><br><span class="line">node ssd[<span class="number">10</span>];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node a, node b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.x &gt; b.x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="max-min-abs"><a href="#max-min-abs" class="headerlink" title="max() min() abs()"></a>max() min() abs()</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">max</span>(x, y);</span><br><span class="line"><span class="built_in">min</span>(x, y);</span><br><span class="line"></span><br><span class="line"><span class="built_in">abs</span>(x); <span class="comment">// x 只能是整数，浮点数的绝对值要使用 math 头文件下的 fabs(x)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="swap"><a href="#swap" class="headerlink" title="swap()"></a>swap()</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">swap</span>(x, y); <span class="comment">// 交换 x, y 的值</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">reverse</span>(it, it2);</span><br><span class="line"><span class="comment">// 将数组指针在 [it, it2) 之间的元素或者容器的迭代器在 [it, it2) 范围内元素进行反转</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="next-permutation"><a href="#next-permutation" class="headerlink" title="next_permutation()"></a>next_permutation()</h4><p>给出一个序列在<strong>全排列</strong>中的下一个序列。到达最后一个时返回<code>flase</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">10</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d%d%d\n&quot;</span>, a[<span class="number">0</span>], a[<span class="number">1</span>], a[<span class="number">2</span>]);</span><br><span class="line">&#125; <span class="keyword">while</span>(<span class="built_in">next_permutation</span>(a, a+<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+
+<h1 id="针对性练习"><a href="#针对性练习" class="headerlink" title="针对性练习"></a>针对性练习</h1><p>刷题时，建议将每种类型的前1~2题作为例题进行学习，其他题目作为练习题，考试前一周，建议将每种题型过一遍。</p>
+<h2 id="1-单调栈"><a href="#1-单调栈" class="headerlink" title="1. 单调栈"></a>1. 单调栈</h2><ol>
+<li>LeetCode 84 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/largest-rectangle-in-histogram">柱状图中最大的矩形</a></li>
+<li>LeetCode 85 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximal-rectangle">最大矩形</a></li>
+<li>LeetCode 739 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/daily-temperatures">每日温度</a></li>
+<li>LeetCode 503 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/next-greater-element-ii">下一个更大元素 II</a></li>
+<li>LeetCode 42 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/trapping-rain-water">接雨水</a></li>
+<li>LeetCode 901 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/online-stock-span">股票价格跨度</a></li>
+<li>LeetCode 239 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sliding-window-maximum">滑动窗口最大值</a></li>
+</ol>
+<h2 id="2-并查集"><a href="#2-并查集" class="headerlink" title="2. 并查集"></a>2. 并查集</h2><ol>
+<li>LeetCode 684 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/redundant-connection">冗余连接</a></li>
+<li>LeetCode 685 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/redundant-connection-ii">冗余连接 II</a></li>
+<li>剑指offer II 116 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/bLyHh0/">省份数量</a></li>
+<li>LeetCode 737 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sentence-similarity-ii">句子相似性 II</a></li>
+<li>LeetCode 1102 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-with-maximum-minimum-value">得分最高的路径</a></li>
+<li>LeetCode 1135 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/connecting-cities-with-minimum-cost">最低成本联通所有城市</a></li>
+<li>LeetCode 261 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/graph-valid-tree">以图判树</a></li>
+<li>LeetCode 1061 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lexicographically-smallest-equivalent-string/">按字典序排列最小的等效字符串</a></li>
+<li>LeetCode 323 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-connected-components-in-an-undirected-graph">无向图中连通分量的数目</a></li>
+<li>LeetCode 924 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimize-malware-spread">尽量减少恶意软件的传播</a></li>
+</ol>
+<h2 id="3-滑动窗口"><a href="#3-滑动窗口" class="headerlink" title="3. 滑动窗口"></a>3. 滑动窗口</h2><ol>
+<li>LeetCode 1208 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/get-equal-substrings-within-budget">尽可能使字符串相等</a></li>
+<li>LeetCode 209 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-size-subarray-sum">长度最小的子数组</a></li>
+<li>LeetCode 3 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters">无重复字符的最长子串</a></li>
+<li>LeetCode 1004 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/max-consecutive-ones-iii">最大连续1的个数 III</a></li>
+<li>LeetCode 340 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-with-at-most-k-distinct-characters">至多包含 K 个不同字符的最长子串</a></li>
+<li>LeetCode 1151 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-swaps-to-group-all-1s-together">最少交换次数来组合所有的1</a></li>
+<li>LeetCode 159 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-with-at-most-two-distinct-characters">至多包含两个不同字符的最长子串</a></li>
+<li>LeetCode 1100 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-k-length-substrings-with-no-repeated-characters">长度为 K 的无重复字符子串</a></li>
+</ol>
+<h2 id="4-前缀-amp-哈希"><a href="#4-前缀-amp-哈希" class="headerlink" title="4. 前缀&amp;哈希"></a>4. 前缀&amp;哈希</h2><ol>
+<li>LeetCode 560 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/subarray-sum-equals-k">和为 K 的子数组</a></li>
+<li>LeetCode 523 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/continuous-subarray-sum">连续的子数组和</a></li>
+<li>LeetCode 974 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/subarray-sums-divisible-by-k">和可被 K 整除的子数组</a></li>
+<li>LeetCode 304 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/range-sum-query-2d-immutable">二维区域和检索 - 矩阵不可变</a></li>
+</ol>
+<h2 id="5-差分"><a href="#5-差分" class="headerlink" title="5. 差分"></a>5. 差分</h2><ol>
+<li>LeetCode 1109 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/corporate-flight-bookings">航班预订统计</a></li>
+<li>LeetCode 1094 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/car-pooling">拼车</a></li>
+<li>LeetCode 121 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock">买卖股票的最佳时机</a></li>
+<li>LeetCode 122 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii">买卖股票的最佳时机 II</a></li>
+<li>LeetCode 253 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/meeting-rooms-ii">会议室 II</a></li>
+</ol>
+<h2 id="6-拓扑排序"><a href="#6-拓扑排序" class="headerlink" title="6. 拓扑排序"></a>6. 拓扑排序</h2><ol>
+<li>LeetCode 210 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/course-schedule-ii">课程表 II</a></li>
+<li>LeetCode 444 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sequence-reconstruction">序列重建</a></li>
+<li>LeetCode 269 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/alien-dictionary">火星词典</a></li>
+</ol>
+<h2 id="7-字符串"><a href="#7-字符串" class="headerlink" title="7. 字符串"></a>7. 字符串</h2><ol>
+<li>LeetCode 5 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-palindromic-substring">最长回文子串</a></li>
+<li>LeetCode 93 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/restore-ip-addresses">复原 IP 地址</a></li>
+<li>LeetCode 43 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/multiply-strings">字符串相乘</a></li>
+<li>LeetCode 227 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/basic-calculator-ii">基本计算器 II</a></li>
+</ol>
+<h2 id="8-BFS"><a href="#8-BFS" class="headerlink" title="8. BFS"></a>8. BFS</h2><ol>
+<li>LeetCode 127 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-ladder">单词接龙</a></li>
+<li>LeetCode 130 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/surrounded-regions">被围绕的区域</a></li>
+<li>LeetCode 317 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shortest-distance-from-all-buildings">离建筑物最近的距离</a></li>
+<li>LeetCode 505 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/the-maze-ii">迷宫 II</a></li>
+<li>LeetCode 1263 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-moves-to-move-a-box-to-their-target-location">推箱子</a></li>
+<li>LeetCode 1197 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-knight-moves">进击的骑士</a></li>
+<li>LeetCode 815 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/bus-routes">公交路线</a></li>
+<li>LeetCode 934 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shortest-bridge">最短的桥</a></li>
+</ol>
+<h2 id="9-DFS"><a href="#9-DFS" class="headerlink" title="9. DFS"></a>9. DFS</h2><ol>
+<li>LeetCode 200 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-islands">岛屿数量</a></li>
+<li>LeetCode 934 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shortest-bridge">最短的桥</a></li>
+<li>LeetCode 1102 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-with-maximum-minimum-value">得分最高的路径</a></li>
+<li>LeetCode 531 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lonely-pixel-i">孤独像素 I</a></li>
+<li>LeetCode 533 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lonely-pixel-ii">孤独像素 II</a></li>
+<li>LeetCode 332 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reconstruct-itinerary">重新安排行程</a></li>
+<li>LeetCode 113 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-sum-ii">路径总和 II</a></li>
+<li>LeetCode 529 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minesweeper">扫雷游戏</a></li>
+</ol>
+<h2 id="10-DP"><a href="#10-DP" class="headerlink" title="10. DP"></a>10. DP</h2><ol>
+<li>LeetCode 213 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/house-robber-ii">打家劫舍 II</a></li>
+<li>LeetCode 337 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/house-robber-iii">打家劫舍 III</a></li>
+<li>LeetCode 1043 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/partition-array-for-maximum-sum">分隔数组以得到最大和</a></li>
+<li>LeetCode 416 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/partition-equal-subset-sum">分割等和子集</a></li>
+<li>LeetCode 123 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii">买卖股票的最佳时机 III</a></li>
+<li>LeetCode 62 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/unique-paths">不同路径</a></li>
+<li>LeetCode 63<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/unique-paths-ii">不同路径 II</a></li>
+<li>LeetCode 651 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/4-keys-keyboard">4键键盘</a></li>
+<li>LeetCode 361 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/bomb-enemy">轰炸敌人</a></li>
+<li>LeetCode 1066 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/campus-bikes-ii">校园自行车分配 II</a></li>
+<li>LeetCode 750 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-corner-rectangles">角矩形的数量</a></li>
+<li>LeetCode 1230 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/toss-strange-coins">抛掷硬币</a></li>
+<li>LeetCode 1055 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shortest-way-to-form-string">形成字符串的最短路径</a></li>
+<li>LeetCode 139 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-break">单词拆分</a></li>
+</ol>
+<h2 id="11-贪心"><a href="#11-贪心" class="headerlink" title="11. 贪心"></a>11. 贪心</h2><ol>
+<li>LeetCode 452 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-number-of-arrows-to-burst-balloons">用最少数量的箭引爆气球</a></li>
+<li>LeetCode 1231 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/divide-chocolate">分享巧克力</a></li>
+<li>LeetCode 1247 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-swaps-to-make-strings-equal">交换字符使得字符串相同</a></li>
+<li>LeetCode 45 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/jump-game-ii">跳跃游戏 II</a></li>
+<li>LeetCode 621 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/task-scheduler">任务调度器</a></li>
+<li>LeetCode 376 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/wiggle-subsequence">摆动序列</a></li>
+<li>LeetCode 517 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/super-washing-machines">超级洗衣机</a></li>
+</ol>
+<h2 id="12-字典树"><a href="#12-字典树" class="headerlink" title="12. 字典树"></a>12. 字典树</h2><ol>
+<li>LeetCode 820 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/short-encoding-of-words">单词的压缩编码</a></li>
+<li>LeetCode 1231 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/divide-chocolate">分享巧克力</a></li>
+<li>LeetCode 648 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/replace-words">单词替换</a></li>
+<li>LeetCode 208 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/implement-trie-prefix-tree">实现 Trie (前缀树)</a></li>
+<li>LeetCode 212 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-search-ii">单词搜索 II</a></li>
+</ol>
+<h1 id="简化版练习"><a href="#简化版练习" class="headerlink" title="简化版练习"></a>简化版练习</h1><h2 id="参考题目"><a href="#参考题目" class="headerlink" title="参考题目"></a>参考题目</h2><ol>
+<li>打家劫舍</li>
+<li>岛屿数量</li>
+<li>课程表</li>
+<li>求二叉树的最大深度</li>
+<li>求二叉树的最小深度</li>
+</ol>
+<h2 id="常见算法"><a href="#常见算法" class="headerlink" title="常见算法"></a>常见算法</h2><ol>
+<li>递归</li>
+<li>BFS</li>
+<li>DFS</li>
+<li>动态规划</li>
+<li>中心拓展法</li>
+<li>双指针</li>
+</ol>
+<h2 id="实战：套用上述算法"><a href="#实战：套用上述算法" class="headerlink" title="实战：套用上述算法"></a>实战：套用上述算法</h2><ol>
+<li>拼车</li>
+<li>在D天内送达包裹的能力</li>
+<li>最大正方形</li>
+<li>加油站</li>
+<li>根据身高重建队列</li>
+<li>被包围的区域</li>
+</ol>
+<p>今天也要加油鸭~</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/cpp/" rel="tag"># cpp</a>
+          
+            <a href="/tags/tech/" rel="tag"># tech</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/03/04/note_on_surfaceflinger/" rel="next" title="SurfaceFlinger学习笔记">
+                <i class="fa fa-chevron-left"></i> SurfaceFlinger学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E5%BF%85%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">算法刷题必备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E6%A0%87%E5%87%86%E5%BA%93STL%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">C++标准库STL的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%85%B1%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">公共函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#clear"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">clear()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#erase"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">erase()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#size"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">size()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vector"><span class="nav-number">1.1.2.</span> <span class="nav-text">vector</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#push-back-i"><span class="nav-number">1.1.2.3.1.</span> <span class="nav-text">push_back(i)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#pop-back"><span class="nav-number">1.1.2.3.2.</span> <span class="nav-text">pop_back()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#insert-vec-begin-2-x"><span class="nav-number">1.1.2.3.3.</span> <span class="nav-text">insert(vec.begin()+2, x)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#note"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">note:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set"><span class="nav-number">1.1.3.</span> <span class="nav-text">set</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE-1"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0-1"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#insert-x"><span class="nav-number">1.1.3.3.1.</span> <span class="nav-text">insert(x)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#find-x"><span class="nav-number">1.1.3.3.2.</span> <span class="nav-text">find(x)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unordered-set"><span class="nav-number">1.1.4.</span> <span class="nav-text">unordered_set</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE-2"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0-2"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">常用函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#empty"><span class="nav-number">1.1.4.4.</span> <span class="nav-text">empty()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#find"><span class="nav-number">1.1.4.5.</span> <span class="nav-text">find()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#count"><span class="nav-number">1.1.4.6.</span> <span class="nav-text">count()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#insert"><span class="nav-number">1.1.4.7.</span> <span class="nav-text">insert()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#emplace"><span class="nav-number">1.1.4.8.</span> <span class="nav-text">emplace()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string"><span class="nav-number">1.1.5.</span> <span class="nav-text">string</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-3"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE-3"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">访问</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8B%E6%A0%87%E8%AE%BF%E9%97%AE"><span class="nav-number">1.1.5.2.1.</span> <span class="nav-text">下标访问</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%BB%E5%85%A5%E6%88%96%E8%80%85%E8%BE%93%E5%87%BA%E6%95%B4%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.1.5.2.2.</span> <span class="nav-text">读入或者输出整个字符串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#printf%E8%BE%93%E5%87%BAstring"><span class="nav-number">1.1.5.2.3.</span> <span class="nav-text">printf输出string</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E8%AE%BF%E9%97%AE"><span class="nav-number">1.1.5.2.4.</span> <span class="nav-text">迭代器访问</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0-3"><span class="nav-number">1.1.5.3.</span> <span class="nav-text">常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#operator"><span class="nav-number">1.1.5.3.1.</span> <span class="nav-text">operator+&#x3D;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#compare-operator"><span class="nav-number">1.1.5.3.2.</span> <span class="nav-text">compare operator</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#length-size"><span class="nav-number">1.1.5.3.3.</span> <span class="nav-text">length() &#x2F; size()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#insert-O-N"><span class="nav-number">1.1.5.3.4.</span> <span class="nav-text">insert(), O(N)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#substr-O-len"><span class="nav-number">1.1.5.3.5.</span> <span class="nav-text">substr(), O(len)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#string-npos"><span class="nav-number">1.1.5.3.6.</span> <span class="nav-text">string::npos</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#find-O-nm"><span class="nav-number">1.1.5.3.7.</span> <span class="nav-text">find(), O(nm)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-number">1.1.6.</span> <span class="nav-text">map</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-4"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE-4"><span class="nav-number">1.1.6.2.</span> <span class="nav-text">访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0-4"><span class="nav-number">1.1.6.3.</span> <span class="nav-text">常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#find-1"><span class="nav-number">1.1.6.3.1.</span> <span class="nav-text">find()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#queue"><span class="nav-number">1.1.7.</span> <span class="nav-text">queue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-5"><span class="nav-number">1.1.7.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE-5"><span class="nav-number">1.1.7.2.</span> <span class="nav-text">访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0-5"><span class="nav-number">1.1.7.3.</span> <span class="nav-text">常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#push"><span class="nav-number">1.1.7.3.1.</span> <span class="nav-text">push()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#front-%E3%80%81back"><span class="nav-number">1.1.7.3.2.</span> <span class="nav-text">front()、back()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#pop"><span class="nav-number">1.1.7.3.3.</span> <span class="nav-text">pop()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#empty-1"><span class="nav-number">1.1.7.3.4.</span> <span class="nav-text">empty()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#priority-queue"><span class="nav-number">1.1.8.</span> <span class="nav-text">priority_queue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-6"><span class="nav-number">1.1.8.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE-6"><span class="nav-number">1.1.8.2.</span> <span class="nav-text">访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0-6"><span class="nav-number">1.1.8.3.</span> <span class="nav-text">常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#push-x"><span class="nav-number">1.1.8.3.1.</span> <span class="nav-text">push(x)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#top"><span class="nav-number">1.1.8.3.2.</span> <span class="nav-text">top()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#pop-1"><span class="nav-number">1.1.8.3.3.</span> <span class="nav-text">pop()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#empty-2"><span class="nav-number">1.1.8.3.4.</span> <span class="nav-text">empty()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.1.8.4.</span> <span class="nav-text">优先级设计</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stack"><span class="nav-number">1.1.9.</span> <span class="nav-text">stack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-7"><span class="nav-number">1.1.9.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE-7"><span class="nav-number">1.1.9.2.</span> <span class="nav-text">访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0-7"><span class="nav-number">1.1.9.3.</span> <span class="nav-text">常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#push-x-1"><span class="nav-number">1.1.9.3.1.</span> <span class="nav-text">push(x)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#top-1"><span class="nav-number">1.1.9.3.2.</span> <span class="nav-text">top()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#pop-2"><span class="nav-number">1.1.9.3.3.</span> <span class="nav-text">pop()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#empty-3"><span class="nav-number">1.1.9.3.4.</span> <span class="nav-text">empty()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pair"><span class="nav-number">1.1.10.</span> <span class="nav-text">pair</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-8"><span class="nav-number">1.1.10.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE-8"><span class="nav-number">1.1.10.2.</span> <span class="nav-text">访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0-8"><span class="nav-number">1.1.10.3.</span> <span class="nav-text">常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E6%93%8D%E4%BD%9C%E6%95%B0"><span class="nav-number">1.1.10.3.1.</span> <span class="nav-text">比较操作数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#algorithm%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B8%8B%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.11.</span> <span class="nav-text">algorithm头文件下常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sort"><span class="nav-number">1.1.11.1.</span> <span class="nav-text">sort()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#max-min-abs"><span class="nav-number">1.1.11.2.</span> <span class="nav-text">max() min() abs()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#swap"><span class="nav-number">1.1.11.3.</span> <span class="nav-text">swap()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reverse"><span class="nav-number">1.1.11.4.</span> <span class="nav-text">reverse()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#next-permutation"><span class="nav-number">1.1.11.5.</span> <span class="nav-text">next_permutation()</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%92%88%E5%AF%B9%E6%80%A7%E7%BB%83%E4%B9%A0"><span class="nav-number">2.</span> <span class="nav-text">针对性练习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8D%95%E8%B0%83%E6%A0%88"><span class="nav-number">2.1.</span> <span class="nav-text">1. 单调栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="nav-number">2.2.</span> <span class="nav-text">2. 并查集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3"><span class="nav-number">2.3.</span> <span class="nav-text">3. 滑动窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%89%8D%E7%BC%80-amp-%E5%93%88%E5%B8%8C"><span class="nav-number">2.4.</span> <span class="nav-text">4. 前缀&amp;哈希</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%B7%AE%E5%88%86"><span class="nav-number">2.5.</span> <span class="nav-text">5. 差分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F"><span class="nav-number">2.6.</span> <span class="nav-text">6. 拓扑排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">2.7.</span> <span class="nav-text">7. 字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-BFS"><span class="nav-number">2.8.</span> <span class="nav-text">8. BFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-DFS"><span class="nav-number">2.9.</span> <span class="nav-text">9. DFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-DP"><span class="nav-number">2.10.</span> <span class="nav-text">10. DP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E8%B4%AA%E5%BF%83"><span class="nav-number">2.11.</span> <span class="nav-text">11. 贪心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E5%AD%97%E5%85%B8%E6%A0%91"><span class="nav-number">2.12.</span> <span class="nav-text">12. 字典树</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E5%8C%96%E7%89%88%E7%BB%83%E4%B9%A0"><span class="nav-number">3.</span> <span class="nav-text">简化版练习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%A2%98%E7%9B%AE"><span class="nav-number">3.1.</span> <span class="nav-text">参考题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">常见算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%88%98%EF%BC%9A%E5%A5%97%E7%94%A8%E4%B8%8A%E8%BF%B0%E7%AE%97%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">实战：套用上述算法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">XioSUN</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

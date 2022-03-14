@@ -230,7 +230,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/24/%E5%88%B7%E9%A2%98%E5%BF%85%E5%A4%87-C++%E6%A0%87%E5%87%86%E5%BA%93STL%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/14/%E5%88%B7%E9%A2%98%E5%BF%85%E5%A4%87-C++%E6%A0%87%E5%87%86%E5%BA%93STL%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -249,7 +249,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2022/02/24/%E5%88%B7%E9%A2%98%E5%BF%85%E5%A4%87-C++%E6%A0%87%E5%87%86%E5%BA%93STL%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url">C++标准库STL的使用</a></h1>
+                <a class="post-title-link" href="/2022/03/14/%E5%88%B7%E9%A2%98%E5%BF%85%E5%A4%87-C++%E6%A0%87%E5%87%86%E5%BA%93STL%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url">算法刷题必备</a></h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-02-24T20:04:44+08:00">
-                2022-02-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-03-14T21:44:44+08:00">
+                2022-03-14
               </time>
             
 
@@ -301,16 +301,188 @@
       
         
           
-            <h1 id="刷题必备"><a href="#刷题必备" class="headerlink" title="刷题必备"></a>刷题必备</h1><h2 id="C-标准库STL的使用"><a href="#C-标准库STL的使用" class="headerlink" title="C++标准库STL的使用"></a>C++标准库STL的使用</h2><blockquote>
+            <h1 id="算法刷题必备"><a href="#算法刷题必备" class="headerlink" title="算法刷题必备"></a>算法刷题必备</h1><h2 id="C-标准库STL的使用"><a href="#C-标准库STL的使用" class="headerlink" title="C++标准库STL的使用"></a>C++标准库STL的使用</h2><blockquote>
 <p>参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43874834/article/details/115415687">C++标准库STL的使用_xianyuerrr的博客-CSDN博客</a></p>
 </blockquote>
+<h3 id="公共函数"><a href="#公共函数" class="headerlink" title="公共函数"></a>公共函数</h3><p>下述模板类/工具类都有的接口。</p>
+<h4 id="clear"><a href="#clear" class="headerlink" title="clear()"></a>clear()</h4><p>用来清空vector中的所有元素</p>
+<h4 id="erase"><a href="#erase" class="headerlink" title="erase()"></a>erase()</h4><ol>
+<li>删除单个元素：erase(it)，删除迭代器处的元素；</li>
+<li>删除一个区间内的所有元素：<code>erase(first,last)</code>，即删除(first,last )区间内的元素。</li>
+</ol>
+<h4 id="size"><a href="#size" class="headerlink" title="size()"></a>size()</h4><p>用来获得vector中元素的个数</p>
 <h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><p>向量，一种便于拓展的数组超集。</p>
-<h4 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义</span></span><br><span class="line">vector&lt;<span class="keyword">typename</span>&gt; name; <span class="comment">// typename可以是任何基本类型</span></span><br><span class="line">vector&lt;<span class="keyword">typename</span>&gt; arrayname[arraysize]; <span class="comment">// 确定了vector.size()的大小，也就是其一维度</span></span><br><span class="line">vector&lt;vector&lt;<span class="keyword">int</span>&gt; &gt;name; <span class="comment">// 更具灵活性</span></span><br><span class="line"></span><br><span class="line">注意：<span class="keyword">typename</span>也可以是STL标准容器，但可能需要在定义时在 &gt;&gt; 符号之间加上空格（C++<span class="number">11</span>之前的编译器会将其视为移位操作，导致编译错误）</span><br><span class="line"></span><br><span class="line"><span class="comment">// e.g.:</span></span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; name;</span><br><span class="line">vector&lt;node&gt; name; <span class="comment">// node为结构体</span></span><br><span class="line">vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; name; <span class="comment">// &gt;&gt;之间要加空格</span></span><br><span class="line">vector&lt;vector&lt;<span class="keyword">int</span>&gt; &gt; name;</span><br></pre></td></tr></table></figure>
+<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义</span></span><br><span class="line">vector&lt;<span class="keyword">typename</span>&gt; vec; <span class="comment">// typename可以是任何基本类型</span></span><br><span class="line">vector&lt;<span class="keyword">typename</span>&gt; vec[size]; <span class="comment">// 确定了vector.size()的大小，也就是其一维度</span></span><br><span class="line">vector&lt;vector&lt;<span class="keyword">int</span>&gt; &gt;vec; <span class="comment">// 更具灵活性</span></span><br><span class="line"></span><br><span class="line">注意：<span class="keyword">typename</span>也可以是STL标准容器，但可能需要在定义时在 &gt;&gt; 符号之间加上空格（C++<span class="number">11</span>之前的编译器会将其视为移位操作，导致编译错误）</span><br><span class="line"></span><br><span class="line"><span class="comment">// e.g.:</span></span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line">vector&lt;node&gt; vec; <span class="comment">// node为结构体</span></span><br><span class="line">vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; vec; <span class="comment">// &gt;&gt;之间最好加空格</span></span><br><span class="line">vector&lt;vector&lt;<span class="keyword">int</span>&gt; &gt; vec;</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-访问"><a href="#2-访问" class="headerlink" title="2. 访问"></a>2. 访问</h3><p>下标访问或通过迭代器访问</p>
+
+
+<h4 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h4><p>下标访问或通过迭代器访问</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="keyword">int</span>&gt; vi;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt;::iterator it = vi.<span class="built_in">begin</span>();</span><br><span class="line"><span class="keyword">for</span>(vector&lt;<span class="keyword">int</span>&gt;::iterator it=vi.<span class="built_in">begin</span>();it!=vi.<span class="built_in">end</span>();it++) &#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,*it);</span><br><span class="line">&#125;</span><br><span class="line">使用<span class="function"><span class="keyword">auto</span></span></span><br><span class="line"><span class="function"><span class="title">for</span> <span class="params">(<span class="keyword">auto</span> it = vi.begin(); it != vi.end(); it++)</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; *it &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// vi[i] 和 *(vi.begin() + i) 是等价的</span></span><br><span class="line"><span class="comment">// 允许 i++， ++i</span></span><br></pre></td></tr></table></figure>
 
 
+
+<h4 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h4><h5 id="push-back-i"><a href="#push-back-i" class="headerlink" title="push_back(i)"></a>push_back(i)</h5><h5 id="pop-back"><a href="#pop-back" class="headerlink" title="pop_back()"></a>pop_back()</h5><p>删除尾元素</p>
+<h5 id="insert-vec-begin-2-x"><a href="#insert-vec-begin-2-x" class="headerlink" title="insert(vec.begin()+2, x)"></a>insert(vec.begin()+2, x)</h5><p>使用迭代器进行数据插入。</p>
+<h4 id="note"><a href="#note" class="headerlink" title="note:"></a>note:</h4><blockquote>
+<p>类似for循环中，可以使用&amp;i，即通过使用引用来降低程序内存的消耗。</p>
+<p>e.g.</p>
+<p>for (auto &amp;i: items) {};</p>
+</blockquote>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p>内部自动排序（增序）且不包含重复元素的容器。如果涉及元素不唯一的情况，需要使用multiset。</p>
+<p>类似的unordered_set()，用散列替代set底层的Red Black Tree（一种自平衡二叉查找树），用于处理只去重但不排序的需求，速度快于set。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line">set&lt;<span class="keyword">typename</span>&gt; s;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="访问-1"><a href="#访问-1" class="headerlink" title="访问"></a>访问</h4><p>只能通过迭代器访问</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">set&lt;<span class="keyword">typename</span>&gt;::iterator it;</span><br><span class="line">set&lt;<span class="keyword">typename</span>&gt; st;</span><br><span class="line"><span class="keyword">for</span> (set&lt;<span class="keyword">typename</span>&gt;::iterator it = st.<span class="built_in">begin</span>(); it != st.<span class="built_in">end</span>(),++it) &#123;</span><br><span class="line">    cout &lt;&lt; *it &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 不能使用it &lt; st.begin() 的写法</span></span><br><span class="line"><span class="comment">// 除了vector和string 之外的STL容器都不支持 *(it + i)的访问方式</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="常用函数-1"><a href="#常用函数-1" class="headerlink" title="常用函数"></a>常用函数</h4><h5 id="insert-x"><a href="#insert-x" class="headerlink" title="insert(x)"></a>insert(x)</h5><p>将x插入set容器，并自动递增排序和去重，时间复杂度为O(logN)</p>
+<h5 id="find-x"><a href="#find-x" class="headerlink" title="find(x)"></a>find(x)</h5><p>返回set中值为x的迭代器，时间复杂度为(logN)</p>
+<h3 id="unordered-set"><a href="#unordered-set" class="headerlink" title="unordered_set"></a>unordered_set</h3><h4 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h4><p>无序容器，和set的区别就是，unordered_set容器不会自行对存储的数据进行排序。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">unordered_set&lt;<span class="keyword">int</span>&gt; us;</span><br><span class="line"><span class="function">unordered_set&lt;<span class="keyword">int</span>&gt; <span class="title">us</span><span class="params">(us1)</span></span>; <span class="comment">// 拷贝构造</span></span><br><span class="line"><span class="function">unordered_set&lt;<span class="keyword">int</span>&gt; <span class="title">us</span><span class="params">(us1.begin(), us1.end())</span></span>; <span class="comment">// 使用迭代器构造</span></span><br><span class="line">unordered_set&lt;<span class="keyword">int</span>&gt; us&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">10</span>,<span class="number">10</span>&#125;; <span class="comment">// 使用初值构造</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="访问-2"><a href="#访问-2" class="headerlink" title="访问"></a>访问</h4><p>使用迭代器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for(unordered_set&lt;int&gt;::iterator it = set1.begin(); it != set1.end(); ++it)</span><br><span class="line">    cout &lt;&lt; *it &lt;&lt; &quot; &quot;;</span><br></pre></td></tr></table></figure>
+
+<p>C++11新方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (int x: s) &#123;</span><br><span class="line">	cout &lt;&lt; x &lt;&lt; &quot; &quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="常用函数-2"><a href="#常用函数-2" class="headerlink" title="常用函数"></a>常用函数</h4><h4 id="empty"><a href="#empty" class="headerlink" title="empty()"></a>empty()</h4><h4 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h4><p>返回迭代器</p>
+<h4 id="count"><a href="#count" class="headerlink" title="count()"></a>count()</h4><p>统计出现的次数</p>
+<h4 id="insert"><a href="#insert" class="headerlink" title="insert()"></a>insert()</h4><h4 id="emplace"><a href="#emplace" class="headerlink" title="emplace()"></a>emplace()</h4><h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><h4 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span> <span class="comment">// C++标准定义的头文件</span></span></span><br><span class="line"><span class="comment">// #include &lt;cstring&gt;	// C++标准为了兼容之前的库而添加</span></span><br><span class="line"><span class="comment">// #include &lt;string.h&gt; // C版本的头文件</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string str;</span><br><span class="line">string str = <span class="string">&quot;hello&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="访问-3"><a href="#访问-3" class="headerlink" title="访问"></a>访问</h4><h5 id="下标访问"><a href="#下标访问" class="headerlink" title="下标访问"></a>下标访问</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; str.<span class="built_in">length</span>(); i++) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, str[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="读入或者输出整个字符串"><a href="#读入或者输出整个字符串" class="headerlink" title="读入或者输出整个字符串"></a>读入或者输出整个字符串</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string str;</span><br><span class="line">cin &gt;&gt; str;</span><br><span class="line">cout &lt;&lt; str;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="printf输出string"><a href="#printf输出string" class="headerlink" title="printf输出string"></a>printf输出string</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, str.<span class="built_in">c_str</span>());	<span class="comment">// 将string转成字符数组</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="迭代器访问"><a href="#迭代器访问" class="headerlink" title="迭代器访问"></a>迭代器访问</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="keyword">for</span> (string::iterator it = str.<span class="built_in">begin</span>(); it != str.<span class="built_in">end</span>(); it++) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, *it);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="常用函数-3"><a href="#常用函数-3" class="headerlink" title="常用函数"></a>常用函数</h4><h5 id="operator"><a href="#operator" class="headerlink" title="operator+="></a>operator+=</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string str1 = <span class="string">&quot;hello&quot;</span>, str2 = <span class="string">&quot; world&quot;</span>, str3;</span><br><span class="line">str3 = str1 + str2;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="compare-operator"><a href="#compare-operator" class="headerlink" title="compare operator"></a>compare operator</h5><p>两个string可以直接使用<code>==, !=, &lt;, &lt;=, &gt;, &gt;=</code> 比较大小，规则是字典序</p>
+<h5 id="length-size"><a href="#length-size" class="headerlink" title="length() / size()"></a>length() / size()</h5><h5 id="insert-O-N"><a href="#insert-O-N" class="headerlink" title="insert(), O(N)"></a>insert(), O(N)</h5><ul>
+<li>insert(pos, string)，在pos位置插入字符串 string</li>
+<li>insert(it, it2, it3)，<strong>it</strong>为原字符串的欲插入位置，<strong>it2</strong>和<strong>it3</strong>是待插入字符串的首尾迭代器</li>
+</ul>
+<h5 id="substr-O-len"><a href="#substr-O-len" class="headerlink" title="substr(), O(len)"></a>substr(), O(len)</h5><p><code>str.substr(pos, len);</code>返回从pos开始、长度为len的子串。</p>
+<h5 id="string-npos"><a href="#string-npos" class="headerlink" title="string::npos"></a>string::npos</h5><p>是一个常数，本身数值为-1，由于是unsigned_int类型，所以也可以当做unsigned_int的最大值，常作为find函数失配的返回值。</p>
+<h5 id="find-O-nm"><a href="#find-O-nm" class="headerlink" title="find(), O(nm)"></a>find(), O(nm)</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">str.<span class="built_in">find</span>(str2);</span><br><span class="line"><span class="comment">// 当 str2 是 str 的子串时，返回其在 str 中第一次出现的位置；</span></span><br><span class="line"><span class="comment">// 如果 str2 不是 str 的子串，返回 string::npos</span></span><br><span class="line"></span><br><span class="line">str.<span class="built_in">find</span>(str2, pos);</span><br><span class="line"><span class="comment">// 从 pos 号位开始匹配 str2，返回值与上相同</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>replace(). O(len)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str.<span class="built_in">replace</span>(pos, len, str2);	<span class="comment">// 把 str 从 pos 号位开始，长度为 len 的子串替换为 str2</span></span><br><span class="line"></span><br><span class="line">str.<span class="built_in">replace</span>(it1, it2, str2);	<span class="comment">// 把 [it1, it2) 范围内的子串替换为 str2</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><h4 id="定义-4"><a href="#定义-4" class="headerlink" title="定义"></a>定义</h4><p><strong>映射</strong>，可以将任何基本类型映射到任何基本类型。内部是<strong>红黑树</strong>实现的（set也是），会以<strong>键</strong> <strong>从小到大</strong>的顺序自动排序。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="访问-4"><a href="#访问-4" class="headerlink" title="访问"></a>访问</h4><ul>
+<li><p>通过下标访问 <code>mp[key]</code></p>
+</li>
+<li><p>通过迭代器访问</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">map&lt;typename1, typename2&gt;::iterator it;</span><br><span class="line">it-&gt;first; <span class="comment">// 访问 key</span></span><br><span class="line">it-&gt;second; <span class="comment">// 访问 value</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="常用函数-4"><a href="#常用函数-4" class="headerlink" title="常用函数"></a>常用函数</h4><h5 id="find-1"><a href="#find-1" class="headerlink" title="find()"></a>find()</h5><p>find(key) 返回键为 key 的映射的迭代器，O(logN)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map&lt;typename1, typename2&gt; mp;</span><br><span class="line">map&lt;typename1, typename2&gt;::iterator it = mp.<span class="built_in">find</span>(key);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h3><p>队列先进先出。双端队列deque，优先级队列priority_queue。</p>
+<h4 id="定义-5"><a href="#定义-5" class="headerlink" title="定义"></a>定义</h4><figure class="highlight plaintext"><figcaption><span><queue></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">queue&lt;typename&gt; name;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="访问-5"><a href="#访问-5" class="headerlink" title="访问"></a>访问</h4><p>由于队列<strong>先进先出</strong>，所以只能通过 <code>front()</code> 来访问队首元素，或者是通过 <code>back()</code> 来访问队尾元素</p>
+<h4 id="常用函数-5"><a href="#常用函数-5" class="headerlink" title="常用函数"></a>常用函数</h4><h5 id="push"><a href="#push" class="headerlink" title="push()"></a>push()</h5><p><code>push(x)</code>，将 <code>x</code> 加入队列，O(1)</p>
+<h5 id="front-、back"><a href="#front-、back" class="headerlink" title="front()、back()"></a>front()、back()</h5><p><code>front() / back()</code> 获取 队首 / 队尾 元素，O(1)</p>
+<h5 id="pop"><a href="#pop" class="headerlink" title="pop()"></a>pop()</h5><p><code>pop()</code>，令队首元素出队，O(1)</p>
+<h5 id="empty-1"><a href="#empty-1" class="headerlink" title="empty()"></a>empty()</h5><p><code>empty()</code>，检测队列是否为空，O(1)</p>
+<p>注意：使用 <code>front() / pop()</code> 前， 必须使用 <code>empty()</code> 判断队列是否为空</p>
+<h3 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h3><p>优先级队列，底层是使用<strong>堆</strong>来进行实现的，队首元素一定是当前队列中优先级最高的</p>
+<h4 id="定义-6"><a href="#定义-6" class="headerlink" title="定义"></a>定义</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line">priority_queue&lt;<span class="keyword">typename</span>&gt; name;	 <span class="comment">//对于基础类型 默认是大顶堆</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="访问-6"><a href="#访问-6" class="headerlink" title="访问"></a>访问</h4><p>优先级队列没有 <code>front()</code> 函数 和 <code>back()</code> 函数，只能通过 <code>top()</code> 函数来访问队首元素（<strong>堆顶</strong>）</p>
+<h4 id="常用函数-6"><a href="#常用函数-6" class="headerlink" title="常用函数"></a>常用函数</h4><h5 id="push-x"><a href="#push-x" class="headerlink" title="push(x)"></a>push(x)</h5><p>令 x 入队，O(logN)</p>
+<h5 id="top"><a href="#top" class="headerlink" title="top()"></a>top()</h5><p>获取队首元素，O(1)</p>
+<h5 id="pop-1"><a href="#pop-1" class="headerlink" title="pop()"></a>pop()</h5><p>堆顶出队</p>
+<h5 id="empty-2"><a href="#empty-2" class="headerlink" title="empty()"></a>empty()</h5><p>检测队列是否为空</p>
+<h4 id="优先级设计"><a href="#优先级设计" class="headerlink" title="优先级设计"></a>优先级设计</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">priority_queue&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">priority_queue&lt;<span class="keyword">int</span>, vector&lt;<span class="keyword">int</span>&gt;, less&lt;<span class="keyword">int</span>&gt; &gt; q;</span><br><span class="line">priority_queue&lt;<span class="keyword">int</span>, vector&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt; &gt; c;	<span class="comment">//这样就是小顶堆</span></span><br><span class="line"><span class="comment">// vector&lt;int&gt; 是承载底层数据结构堆（heap）的容器</span></span><br><span class="line"><span class="comment">// less&lt;int&gt; 是对第一个参数的比较类</span></span><br><span class="line"><span class="comment">// less&lt;int&gt; 表示数字越大优先级越高</span></span><br><span class="line"><span class="comment">// greater&lt;int&gt; 表示数字越小优先级越高</span></span><br></pre></td></tr></table></figure>
+
+<p>sswTODO 暂时不会用到，先省略。</p>
+<h3 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h3><p>栈，<strong>后进先出</strong></p>
+<h4 id="定义-7"><a href="#定义-7" class="headerlink" title="定义"></a>定义</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line">stack&lt;<span class="keyword">typename</span>&gt; name;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="访问-7"><a href="#访问-7" class="headerlink" title="访问"></a>访问</h4><p>由于栈是一种后进先出的数据结构，所以只能通过<code>top()</code> 来访问<strong>栈顶</strong>元素</p>
+<h4 id="常用函数-7"><a href="#常用函数-7" class="headerlink" title="常用函数"></a>常用函数</h4><h5 id="push-x-1"><a href="#push-x-1" class="headerlink" title="push(x)"></a>push(x)</h5><p>将<code>x</code>入栈，O(1)</p>
+<h5 id="top-1"><a href="#top-1" class="headerlink" title="top()"></a>top()</h5><p>获取栈顶元素，O(1)</p>
+<h5 id="pop-2"><a href="#pop-2" class="headerlink" title="pop()"></a>pop()</h5><p>弹出栈顶元素，O(1)</p>
+<h5 id="empty-3"><a href="#empty-3" class="headerlink" title="empty()"></a>empty()</h5><p>检测是否为空，O(1)</p>
+<h3 id="pair"><a href="#pair" class="headerlink" title="pair"></a>pair</h3><p>把两个元素绑在一起，但又不想定义结构体时，<strong>pair</strong>是一个替代品，也就是说<strong>pair</strong>可以看作一个内部有两个元素的结构体。<strong>map</strong>的内部实现涉及<strong>pair</strong>。可以作为<strong>map</strong> 的键值对来插入。</p>
+<h4 id="定义-8"><a href="#定义-8" class="headerlink" title="定义"></a>定义</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;utility&gt;</span> <span class="comment">// 可以使用 &lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line">pair&lt;typename1, typename2&gt; name;</span><br><span class="line"><span class="function">pair&lt;typename1, typename2&gt; <span class="title">name</span><span class="params">(value1, value2)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 临时构建</span></span><br><span class="line">pair&lt;type1, type2&gt;(value1, value2);</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"><span class="built_in">make_pair</span>(value1, value2);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="访问-8"><a href="#访问-8" class="headerlink" title="访问"></a>访问</h4><p>pair只有两个元素，分别是 <strong>first</strong> 和 <strong>second</strong>，按正常结构体去访问就好</p>
+<h4 id="常用函数-8"><a href="#常用函数-8" class="headerlink" title="常用函数"></a>常用函数</h4><h5 id="比较操作数"><a href="#比较操作数" class="headerlink" title="比较操作数"></a>比较操作数</h5><p>以&lt;first, second&gt; 元组方式比较</p>
+<h3 id="algorithm头文件下常用函数"><a href="#algorithm头文件下常用函数" class="headerlink" title="algorithm头文件下常用函数"></a>algorithm头文件下常用函数</h3><p>定义</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h4><p>排序函数，效率较高。一般不推荐C语言中的qsort()，因为其比较繁琐。</p>
+<p>sort规避了经典快排中可能出现的复杂度退化到 O(n ^2) 的极端情况。</p>
+<p>STL标准容器中，只有 vector、string、deque是可以使用 sort。因为像是 set、map这种内部是使用红黑树实现的，元素本身就有序。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span>(首元素地址, 尾元素的下一个地址, 比较函数(非必填));</span><br><span class="line"><span class="comment">// 默认进行递增排序</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a&gt;b;</span><br><span class="line">    <span class="comment">// a&gt;b 时把 a 放在 b 前面</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// struct 数组的排序</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, y;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 按 x 的值递减排序</span></span><br><span class="line">node ssd[<span class="number">10</span>];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node a, node b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.x &gt; b.x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="max-min-abs"><a href="#max-min-abs" class="headerlink" title="max() min() abs()"></a>max() min() abs()</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">max</span>(x, y);</span><br><span class="line"><span class="built_in">min</span>(x, y);</span><br><span class="line"></span><br><span class="line"><span class="built_in">abs</span>(x); <span class="comment">// x 只能是整数，浮点数的绝对值要使用 math 头文件下的 fabs(x)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="swap"><a href="#swap" class="headerlink" title="swap()"></a>swap()</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">swap</span>(x, y); <span class="comment">// 交换 x, y 的值</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">reverse</span>(it, it2);</span><br><span class="line"><span class="comment">// 将数组指针在 [it, it2) 之间的元素或者容器的迭代器在 [it, it2) 范围内元素进行反转</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="next-permutation"><a href="#next-permutation" class="headerlink" title="next_permutation()"></a>next_permutation()</h4><p>给出一个序列在<strong>全排列</strong>中的下一个序列。到达最后一个时返回<code>flase</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">10</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d%d%d\n&quot;</span>, a[<span class="number">0</span>], a[<span class="number">1</span>], a[<span class="number">2</span>]);</span><br><span class="line">&#125; <span class="keyword">while</span>(<span class="built_in">next_permutation</span>(a, a+<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
 
 <h1 id="针对性练习"><a href="#针对性练习" class="headerlink" title="针对性练习"></a>针对性练习</h1><p>刷题时，建议将每种类型的前1~2题作为例题进行学习，其他题目作为练习题，考试前一周，建议将每种题型过一遍。</p>
 <h2 id="1-单调栈"><a href="#1-单调栈" class="headerlink" title="1. 单调栈"></a>1. 单调栈</h2><ol>
@@ -420,7 +592,441 @@
 <li>LeetCode 208 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/implement-trie-prefix-tree">实现 Trie (前缀树)</a></li>
 <li>LeetCode 212 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-search-ii">单词搜索 II</a></li>
 </ol>
+<h1 id="简化版练习"><a href="#简化版练习" class="headerlink" title="简化版练习"></a>简化版练习</h1><h2 id="参考题目"><a href="#参考题目" class="headerlink" title="参考题目"></a>参考题目</h2><ol>
+<li>打家劫舍</li>
+<li>岛屿数量</li>
+<li>课程表</li>
+<li>求二叉树的最大深度</li>
+<li>求二叉树的最小深度</li>
+</ol>
+<h2 id="常见算法"><a href="#常见算法" class="headerlink" title="常见算法"></a>常见算法</h2><ol>
+<li>递归</li>
+<li>BFS</li>
+<li>DFS</li>
+<li>动态规划</li>
+<li>中心拓展法</li>
+<li>双指针</li>
+</ol>
+<h2 id="实战：套用上述算法"><a href="#实战：套用上述算法" class="headerlink" title="实战：套用上述算法"></a>实战：套用上述算法</h2><ol>
+<li>拼车</li>
+<li>在D天内送达包裹的能力</li>
+<li>最大正方形</li>
+<li>加油站</li>
+<li>根据身高重建队列</li>
+<li>被包围的区域</li>
+</ol>
 <p>今天也要加油鸭~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/04/note_on_surfaceflinger/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToDay">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/03/04/note_on_surfaceflinger/" itemprop="url">SurfaceFlinger学习笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-03-04T10:30:30+08:00">
+                2022-03-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="刷新Layer"><a href="#刷新Layer" class="headerlink" title="刷新Layer"></a>刷新Layer</h1><blockquote>
+<p>原文链接：</p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/@anupcowkur/functional-programming-for-android-developers-part-1-a58d40d6e742#.it6ndspj6">https://medium.com/@anupcowkur/functional-programming-for-android-developers-part-1-a58d40d6e742#.it6ndspj6</a></p>
+<p>翻译链接：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xitu/gold-miner/blob/master/TODO/functional-programming-for-android-developers-part-1.md">gold-miner/functional-programming-for-android-developers-part-1.md at master · xitu/gold-miner (github.com)</a></p>
+</blockquote>
+<h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><p>FP是一种将程序看成是数学方法的求值、不改变状态、不产生副作用的编程方式。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/03/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%EF%BC%9A%E5%AE%89%E5%8D%93%E5%9C%BA%E6%99%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToDay">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/03/03/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%EF%BC%9A%E5%AE%89%E5%8D%93%E5%9C%BA%E6%99%AF/" itemprop="url">基本算法笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-03-03T16:30:30+08:00">
+                2022-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="函数式编程：安卓场景"><a href="#函数式编程：安卓场景" class="headerlink" title="函数式编程：安卓场景"></a>函数式编程：安卓场景</h1><blockquote>
+<p>原文链接：</p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/@anupcowkur/functional-programming-for-android-developers-part-1-a58d40d6e742#.it6ndspj6">https://medium.com/@anupcowkur/functional-programming-for-android-developers-part-1-a58d40d6e742#.it6ndspj6</a></p>
+<p>翻译链接：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xitu/gold-miner/blob/master/TODO/functional-programming-for-android-developers-part-1.md">gold-miner/functional-programming-for-android-developers-part-1.md at master · xitu/gold-miner (github.com)</a></p>
+</blockquote>
+<h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><p>FP是一种将程序看成是数学方法的求值、不改变状态、不产生副作用的编程方式。</p>
+<p>强调：</p>
+<ul>
+<li><strong>声明式代码</strong> —— 程序员应该关心<strong>是什么</strong>（逻辑层），让编译器和运行环境去关心<strong>怎样做</strong>（实现层）。</li>
+<li><strong>明确性</strong> —— 代码应该尽可能的明显。尤其是要隔离副作用避免意外。要明确定义数据流和错误处理，要避免 <strong>GOTO</strong> 语句和 <strong>异常</strong>，因为它们会将应用置于意外的状态。</li>
+<li><strong>并发</strong> —— 因为纯函数的概念，大多数函数式代码默认都是并行的。由于CPU运行速度没有像以前那样逐年加快， 普遍看来这个特点导致函数式编程渐受欢迎。以及我们也必须利用多核架构的优点，让代码尽量的可并行。</li>
+<li><strong>高阶函数</strong> —— 函数和其他的语言基本元素一样是一等公民。你可以像使用 string 和 int 一样的去传递函数。</li>
+<li><strong>不变性</strong> —— 变量一经初始化将不能修改。一经创建，永不改变。如果需要改变，需要创建新的。这是明确性和避免副作用之外的另一方面。如果你知道一个变量不能改变，当你使用时会对它的状态更有信心。</li>
+</ul>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="纯函数"><a href="#纯函数" class="headerlink" title="纯函数"></a>纯函数</h3><p>当一个函数的输出只依赖输入并且没有<strong>副作用</strong>（见下），那么这个函数就是纯函数。</p>
+<h4 id="副作用"><a href="#副作用" class="headerlink" title="副作用"></a>副作用</h4><p>任何修改外界状态（修改变量、写文件、存储 DB、删除内容等）的代码都是有副作用的。</p>
+<p>需要说明的是，FP并不直接与副作用势不两立，而是包容、隔离他们，从而尽可能减少影响。</p>
+<h4 id="可重排"><a href="#可重排" class="headerlink" title="可重排"></a>可重排</h4><p>FP赋予代码可重排序的特性，主要影响的是程序的并行性。</p>
+<h4 id="不变性"><a href="#不变性" class="headerlink" title="不变性"></a>不变性</h4><p>不变性是指一旦一个值被创建，它就不可以被修改。</p>
+<p>注意实际场景下的具体变量的不变性，例如string和list，后者可能因为返回引用而埋下了潜在被修改的种子。</p>
+<h4 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h4><p>基于锁的资源管理难以保证安全，可能造成极其难以分析的并发bug。</p>
+<p>实际场景中，经常需要共享可变的状态，我们将使用状态隔离的方式来处理这种情况，从而将副作用推到系统的边缘。</p>
+<h3 id="持久数据结构"><a href="#持久数据结构" class="headerlink" title="持久数据结构"></a>持久数据结构</h3><p>不可变对象存在的问题：若不加限制地使用，可能给垃圾回收器造成负担，从而导致性能问题。</p>
+<p>为了缓解这一问题，函数式编程向我们提供具有不可变性，并能<strong>最小化对象创建</strong>的数据结构。这些专门化的数据结构被称为<strong>持久数据结构</strong>。持久数据结构在被修改时，总会保留自己之前的版本。这些数据结构实际上是不可变的。对它们的操作不会（可见地）更新数据结构，而是返回一个新的修改过的结构。</p>
+<h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><p>高阶函数是可以接受将函数作为输入参数，也可以接受将函数作为输出结果的一类函数。</p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包是可以捕捉其环境变化的函数。结合闭包和高阶函数，可以实现不使用OOP的对象。<a target="_blank" rel="noopener" href="http://wiki.c2.com/?ClosuresAndObjectsAreEquivalent">Closures And Objects Are Equivalent (c2.com)</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/03/%E5%9F%BA%E6%9C%AC%E7%AE%97%E6%B3%95%E5%B0%8F%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ToDay">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/03/03/%E5%9F%BA%E6%9C%AC%E7%AE%97%E6%B3%95%E5%B0%8F%E7%BB%93/" itemprop="url">基本算法笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-03-03T11:30:30+08:00">
+                2022-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="DFS-amp-BFS-的本质差别"><a href="#DFS-amp-BFS-的本质差别" class="headerlink" title="DFS &amp; BFS 的本质差别"></a>DFS &amp; BFS 的本质差别</h2><p>深度优先遍历和广度优先遍历在本质上的差异，其实是对候补顶点的优先选择的不同。</p>
+<h3 id="BFS模板-C"><a href="#BFS模板-C" class="headerlink" title="BFS模板 - C++"></a>BFS模板 - C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(Node root, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1、两个队列，分别用于存储起始节点和已访问过的节点</span></span><br><span class="line">    queue&lt;Node&gt; q;</span><br><span class="line">    unordered_set&lt;Node&gt; visited;</span><br><span class="line">    <span class="comment">// 2、将最初的起始节点放入队列，状态更新</span></span><br><span class="line">    q.<span class="built_in">push_back</span>(root);</span><br><span class="line">    <span class="built_in">visted</span>(root);</span><br><span class="line">    <span class="keyword">int</span> step; <span class="comment">// 记录步数</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3、遍历队列中的所有可能作为起始的节点</span></span><br><span class="line">    <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">        <span class="keyword">int</span> sz = q.<span class="built_in">size</span>();</span><br><span class="line">	    <span class="comment">// 4、当前队列中的所有节点为同一扩散层级</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sz; ++i) &#123;</span><br><span class="line">            <span class="comment">// 5、每次读取队列顶端节点，进行相应的判断，并从队列中弹出</span></span><br><span class="line">            Node cur = q.<span class="built_in">front</span>();</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="comment">// 6、判断当前该节点是否为最终目标，满足条件return</span></span><br><span class="line">            <span class="keyword">if</span> (cur == target) &#123;</span><br><span class="line">                <span class="keyword">return</span> step;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 7、当前节点满足条件，将其子节点放入队列中存储，在下一次循环（扩散）时进行读取</span></span><br><span class="line">            <span class="keyword">for</span> (Node &amp;e : Graph[root]) &#123;</span><br><span class="line">                <span class="comment">// 8、边界判断，其子节点是否越界、已被访问以及其他限制条件</span></span><br><span class="line">                <span class="keyword">if</span>(visited.<span class="built_in">find</span>(e) != visited.<span class="built_in">end</span>()) &#123;</span><br><span class="line">                    q.<span class="built_in">push</span>(e);</span><br><span class="line">                    visited.<span class="built_in">insert</span>(e);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        step++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="贝尔曼-福特算法的时间复杂度"><a href="#贝尔曼-福特算法的时间复杂度" class="headerlink" title="贝尔曼-福特算法的时间复杂度"></a>贝尔曼-福特算法的时间复杂度</h2><p>假设图的顶点为n，边的数量为m。</p>
+<blockquote>
+<p>该算法经过n轮更新后，就会停止……</p>
+<p>–我的第一本算法书</p>
+</blockquote>
+<p>更新一轮的权重花费的时间复杂度为O(m)，那么，总的时间复杂度为O(mn)。</p>
+<p>TODO 为什么n轮就一定停止呢？</p>
+<h2 id="LeetCode-真题"><a href="#LeetCode-真题" class="headerlink" title="LeetCode 真题"></a>LeetCode 真题</h2><h3 id="排序问题"><a href="#排序问题" class="headerlink" title="排序问题"></a>排序问题</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/queue-reconstruction-by-height/">根据身高重建队列 - LeetCode</a></p>
+<blockquote>
+<p>一般这种涉及数对的排序的问题，可以根据第一个元素正向排序，根据第二个元素反向排序，或者反之，往往能够简化解题的过程。</p>
+</blockquote>
+<p>这类型的题，有点像做菜挑战，给你摆出了一盘乱了的菜，问你，怎么做才能依照规则，重新排序好、成为一盘符合预期的菜。</p>
+<p>做法应该有多种，也就是从各个方向都可以复原这道菜。</p>
 
           
         
@@ -1351,7 +1957,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1364,7 +1970,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
